@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Site
         run: |
-          hugo --baseURL https://xiaoanso.github.io
+          hugo --config config.toml --baseURL https://xiaoanso.github.io
 
       - name: Deploy Pages
         uses: peaceiris/actions-gh-pages@v3
