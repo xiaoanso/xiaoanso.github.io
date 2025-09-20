@@ -92,30 +92,129 @@ body,html{font-size:14px;}
 .search-results {
     max-height: 400px;
     overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 20px !important;
+}
+
+.io-black-mode .search-results {
+    background: #2d3238;
 }
 
 .search-result-item {
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    text-decoration: none !important;
+    display: block;
+}
+
+.io-black-mode .search-result-item {
+    border-bottom: 1px solid #444;
 }
 
 .search-result-item:hover {
     background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.io-black-mode .search-result-item:hover {
+    background-color: #383d42;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.search-result-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.io-black-mode .search-result-title {
+    color: #e9ecef;
 }
 
 .search-result-title mark {
-    background-color: #ffc107;
-    padding: 0 2px;
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+.io-black-mode .search-result-title mark {
+    background-color: #856404;
+    color: #fff3cd;
+}
+
+.search-result-description {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.io-black-mode .search-result-description {
+    color: #adb5bd;
 }
 
 .search-result-description mark {
-    background-color: #ffc107;
-    padding: 0 2px;
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0 4px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.io-black-mode .search-result-description mark {
+    background-color: #856404;
+    color: #fff3cd;
+}
+
+.search-result-item:hover .search-result-title {
+    color: #007bff;
+}
+
+.io-black-mode .search-result-item:hover .search-result-title {
+    color: #63a8ff;
+}
+
+/* 无结果提示样式 */
+#search-results .text-center.text-muted {
+    padding: 40px 20px;
+    text-align: center;
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.io-black-mode #search-results .text-center.text-muted {
+    color: #adb5bd;
 }
 
 /* 移动端适配 */
 @media (max-width: 767.98px) {
     .search-results {
         max-height: 300px;
+        margin-top: 15px !important;
+        border-radius: 6px;
+    }
+    
+    .search-result-item {
+        padding: 12px 15px;
+    }
+    
+    .search-result-title {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    
+    .search-result-description {
+        font-size: 13px;
     }
 }
 

@@ -117,7 +117,7 @@ class SiteSearch {
         if (!searchResultsContainer) return;
 
         if (results.length === 0) {
-            searchResultsContainer.innerHTML = '<div class="search-result-item p-3 text-center text-muted">未找到相关结果</div>';
+            searchResultsContainer.innerHTML = '<div class="text-center text-muted py-5">未找到相关结果</div>';
             return;
         }
 
@@ -127,12 +127,12 @@ class SiteSearch {
             const highlightedTitle = this.highlightText(result.title, query);
             const highlightedDescription = result.description ? 
                 this.highlightText(result.description, query) : 
-                this.truncateText(result.content, 100);
+                this.truncateText(result.content, 120);
 
             html += `
-                <a href="${result.url}" class="search-result-item d-block p-3 border-bottom text-decoration-none" target="_blank">
-                    <div class="search-result-title font-weight-bold text-dark">${highlightedTitle}</div>
-                    <div class="search-result-description text-muted small mt-1">${highlightedDescription}</div>
+                <a href="${result.url}" class="search-result-item" target="_blank">
+                    <div class="search-result-title">${highlightedTitle}</div>
+                    <div class="search-result-description">${highlightedDescription}</div>
                 </a>
             `;
         });
