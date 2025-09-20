@@ -38,6 +38,28 @@ class SiteSearch {
                 }
             });
         }
+
+        // 处理表单提交事件，支持站内搜索
+        const searchForm = document.querySelector('.super-search-fm');
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => this.handleFormSubmit(e));
+        }
+    }
+
+    handleFormSubmit(e) {
+        const searchInput = document.querySelector('.search-key');
+        if (searchInput && searchInput.getAttribute('zhannei') === 'true') {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            if (query.length >= 2) {
+                this.performSearch(query);
+                // 滚动到搜索结果区域
+                const searchResults = document.getElementById('search-results');
+                if (searchResults) {
+                    searchResults.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
     }
 
     performSearch(query) {
