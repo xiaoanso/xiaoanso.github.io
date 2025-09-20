@@ -1,0 +1,15 @@
+- taxonomy: 技术博客
+  icon: fas fa-laptop-code
+  list:
+    - name: 坚持1
+      url: "/posts/test"
+    - name: 坚持1
+      url: "/about"
+
+- taxonomy: 生活随笔
+  icon: fas fa-coffee
+  list:
+    - name: 坚持2
+      url: "/posts/test"
+    - name: 坚持13
+      url: "/about"
