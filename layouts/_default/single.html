@@ -6,9 +6,68 @@
     <main role="main" class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">{{ .Title }}</h1>
+        <!-- 添加目录显示 -->
+        {{ if .Params.toc }}
+        <aside class="toc">
+            <h3>目录</h3>
+            {{ .TableOfContents }}
+        </aside>
+        <style>
+            .toc { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; }
+            .toc h3 { margin-top: 0; }
+            .toc ul { padding-left: 20px; }
+        </style>
+        {{ end }}
+        <!-- 目录结束 -->
         <div class="content">
             {{ .Content | markdownify | safeHTML }}
         </div>
+        
+        <!-- 添加博客链接部分 -->
+        {{ if eq .Title "关于网站" }}
+        <div class="blogs-section">
+            <h3>博客文章</h3>
+            {{ range $.Site.Data.blogs }}
+            <div class="blog-category">
+                <h4><i class="{{ .icon }}"></i> {{ .taxonomy }}</h4>
+                <ul>
+                    {{ range .list }}
+                    <li><a href="{{ .url }}">{{ .name }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
+        <style>
+            .blogs-section {
+                margin-top: 30px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 5px;
+            }
+            .blog-category {
+                margin-bottom: 20px;
+            }
+            .blog-category h4 i {
+                margin-right: 10px;
+            }
+            .blog-category ul {
+                list-style: none;
+                padding-left: 20px;
+            }
+            .blog-category li {
+                margin: 5px 0;
+            }
+            .blog-category li:before {
+                content: "•";
+                color: #f1404b;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+        </style>
+        {{ end }}
+        <!-- 博客链接部分结束 -->
     </div>
     </main>
 

@@ -89,9 +89,9 @@
 			    </li>
 			
 			<li >
-				<a href="https://weiyan.cc/">
+				<a href="/about">
                                     <i class="fa fa-book fa-lg mr-2"></i>
-                                    <span>作者</span>
+                                    <span>小安驿站</span>
                                 </a>
 				<ul class="sub-menu">
 				
@@ -108,10 +108,6 @@
 				    <li><a href="https://github.com/shenweiyan/Knowledge-Garden/discussions/10">教程</a></li>
 				
 				    <li><a href="https://github.com/shenweiyan/WebStack-Hugo">源码</a></li>
-				
-				    <li><a href="/posts/test">坚持</a></li>
-				
-				    <li><a href="/about">坚持1</a></li>
 				
 				</ul>
 			    </li>
@@ -184,6 +180,27 @@
     <main role="main" class="flex-shrink-0">
     <div class="container">
         <h1 class="mt-5">关于网站</h1>
+        
+        
+        <aside class="toc">
+            <h3>目录</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <style>
+            .toc { margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 5px; }
+            .toc h3 { margin-top: 0; }
+            .toc ul { padding-left: 20px; }
+        </style>
+        
+        
         <div class="content">
             <h4 id="这是-hugo-版-webstack-主题">这是 Hugo 版 WebStack 主题</h4>
 <p>本项目是基于<strong>纯静态</strong>的网址导航网站 <a href="https://github.com/WebStackPage/WebStackPage.github.io">webstack.cc</a> 制作的 <a href="https://gohugo.io/">Hugo</a> 主题，其中部分代码参考了以下几个开源项目：<br/><br/></p>
@@ -206,6 +223,65 @@
 </ul>
 
         </div>
+        
+        
+        
+        <div class="blogs-section">
+            <h3>博客文章</h3>
+            
+            <div class="blog-category">
+                <h4><i class="fas fa-laptop-code"></i> 技术博客</h4>
+                <ul>
+                    
+                    <li><a href="/posts/test">坚持1</a></li>
+                    
+                    <li><a href="/about">坚持1</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="blog-category">
+                <h4><i class="fas fa-coffee"></i> 生活随笔</h4>
+                <ul>
+                    
+                    <li><a href="/posts/test">坚持2</a></li>
+                    
+                    <li><a href="/about">坚持13</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+        <style>
+            .blogs-section {
+                margin-top: 30px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 5px;
+            }
+            .blog-category {
+                margin-bottom: 20px;
+            }
+            .blog-category h4 i {
+                margin-right: 10px;
+            }
+            .blog-category ul {
+                list-style: none;
+                padding-left: 20px;
+            }
+            .blog-category li {
+                margin: 5px 0;
+            }
+            .blog-category li:before {
+                content: "•";
+                color: #f1404b;
+                display: inline-block;
+                width: 1em;
+                margin-left: -1em;
+            }
+        </style>
+        
+        
     </div>
     </main>
 
