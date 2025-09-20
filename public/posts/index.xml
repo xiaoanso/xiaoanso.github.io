@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on WebStack-Hugo 网址导航</title>
+    <link>http://localhost:64341/posts/</link>
+    <description>Recent content in Posts on WebStack-Hugo 网址导航</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 20 Sep 2025 15:16:10 +0800</lastBuildDate>
+    <atom:link href="http://localhost:64341/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>http://localhost:64341/posts/test/</link>
+      <pubDate>Sat, 20 Sep 2025 15:16:10 +0800</pubDate>
+      <guid>http://localhost:64341/posts/test/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;微信公众号排版工具。问题或建议，请公众号留言。&lt;strong&gt;&lt;a href=&#34;#jump_8&#34;&gt;程序员翻身&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;建议使用 &lt;strong&gt;Chrome&lt;/strong&gt; 浏览器，体验最佳效果。&lt;/p&gt;&#xA;&lt;p&gt;使用微信公众号编辑器有一个十分头疼的问题：粘贴出来的代码，格式错乱，空间小还带行号，而且特别丑。Markdown.com.cn编辑器能够解决这个问题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

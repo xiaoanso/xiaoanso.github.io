@@ -34,7 +34,7 @@ body,html{font-size:14px;}
 .post-top{padding-bottom:50px}
 
 /*左导航二级导航标题左侧距离*/
-.sidebar-menu-inner ul li ul li a{margin-left:30px;}
+.sidebar-menu-inner ul li ul li a{margin-left:18px;}
 
 /*头部导航二级导航iconfont图标*/
 .navbar-collapse ul li.menu-item-has-children:after{content:'\e612';}
@@ -143,4 +143,74 @@ footer.main-footer .footer-text a:hover {
 /*导航 Logo 图标裁剪边角*/
 .url-card .url-img > img {
     border-radius: 20%;
+}
+
+/* 优化左侧导航栏 */
+.sidebar-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-item > a {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.sidebar-item > a:hover {
+    background-color: rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+.sidebar-item > a > i {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar-item ul li a {
+    padding: 8px 15px 8px 45px;
+    display: block;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.sidebar-item ul li a:hover {
+    background-color: rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+/* 展开状态下的导航项样式 */
+.sidebar-menu-inner .sidebar-item.expanded > a {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* 底部导航项样式优化 */
+.sidebar .flex-bottom ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar .flex-bottom ul li a {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.sidebar .flex-bottom ul li a:hover {
+    background-color: rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+.sidebar .flex-bottom ul li a i {
+    margin-right: 10px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
 }

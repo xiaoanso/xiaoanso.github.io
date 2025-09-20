@@ -582,7 +582,7 @@
           description: 阮一峰，科技爱好者周刊。
         - title: 酷壳
           url: https://www.coolshell.cn/
-          logo: ''
+          logo: 酷壳.png
           description: 酷 壳 – CoolShell。
     - term: 设计规范
       links:
