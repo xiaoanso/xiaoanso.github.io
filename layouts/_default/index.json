@@ -1,0 +1,15 @@
+{{- $pages := where .Site.Pages "Type" "not in" (slice "json" "xml") -}}
+{{- $pages = where $pages ".Params.private" "!=" true -}}
+{
+  "pages": [
+    {{- range $index, $page := $pages -}}
+    {{- if gt $index 0 -}},{{- end -}}
+    {
+      "title": {{ $page.Title | jsonify }},
+      "content": {{ $page.Plain | jsonify }},
+      "url": {{ $page.RelPermalink | jsonify }},
+      "description": {{ $page.Description | jsonify }}
+    }
+    {{- end -}}
+  ]
+}

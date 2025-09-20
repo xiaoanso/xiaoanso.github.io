@@ -20,9 +20,10 @@ Thumbs.db
 # 个人笔记
 docs/*
 
-# 站点文件 本地文件不需要提交
-exampleSite/themes/*
-exampleSite/public/assets/*
+#本地调试 不需要提交
+themes/*
+public/assets/*
+
 
 
 

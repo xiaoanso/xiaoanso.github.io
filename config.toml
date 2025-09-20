@@ -7,6 +7,13 @@ disablePathToLower    = true
 hasCJKLanguage        = true
 publishDir            = "public"				# 站点静态文件保存目录
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
 
 [params]
     author        = "shenweiyan"

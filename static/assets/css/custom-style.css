@@ -88,6 +88,37 @@ body,html{font-size:14px;}
     color: #999;
 }
 
+/* 站内搜索结果样式 */
+.search-results {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+.search-result-title mark {
+    background-color: #ffc107;
+    padding: 0 2px;
+}
+
+.search-result-description mark {
+    background-color: #ffc107;
+    padding: 0 2px;
+}
+
+/* 移动端适配 */
+@media (max-width: 767.98px) {
+    .search-results {
+        max-height: 300px;
+    }
+}
+
 footer.main-footer .footer-text {
     text-align: center;
 }
@@ -113,18 +144,3 @@ footer.main-footer .footer-text a:hover {
 .url-card .url-img > img {
     border-radius: 20%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

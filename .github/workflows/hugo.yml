@@ -25,10 +25,10 @@ jobs:
           hugo-version: '0.122.0'
           extended: false
 
-      - name: Prepare site
-        run: |
+      #- name: Prepare site
+      #  run: |
           # 复制 exampleSite 内容到根目录
-          cp -R exampleSite/* .
+          # cp -R exampleSite/* .
           # 修改 config.toml 中的主题路径
           # sed -i 's|theme = "WebStack-Hugo"|theme = "layouts"|' config.toml
 
