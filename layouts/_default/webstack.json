@@ -1,0 +1,27 @@
+{{- $webstack := .Site.Data.webstack -}}
+{{- $sites := slice -}}
+
+{{- range $webstack -}}
+  {{- if .links -}}
+    {{- range .links -}}
+      {{- if .url -}}
+        {{- $site := dict "title" .title "url" .url "description" .description -}}
+        {{- $sites = $sites | append $site -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  
+  {{- if .list -}}
+    {{- range .list -}}
+      {{- if .links -}}
+        {{- range .links -}}
+          {{- if .url -}}
+            {{- $site := dict "title" .title "url" .url "description" .description -}}
+            {{- $sites = $sites | append $site -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $sites | jsonify -}}

@@ -244,3 +244,186 @@ function performSiteSearch(keywords) {
     searchWindow.document.write(searchContent);
     searchWindow.document.close();
 }
+
+
+// 添加网站检查按钮的点击事件处理
+function checkWebURL() {
+    // 创建模态框显示检查结果
+    var modalHtml = `
+    <div class="modal fade" id="checkUrlModal" tabindex="-1" role="dialog" aria-labelledby="checkUrlModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checkUrlModalLabel">网站可用性检查</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div id="checkProgress" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <div id="checkSummary" class="mt-3"></div>
+                    <div id="checkResults" class="mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+    if ($('#checkUrlModal').length === 0) {
+        $('body').append(modalHtml);
+    }
+
+    $('#checkUrlModal').modal('show');
+
+    // 初始化检查状态
+    $('#checkProgress').css('width', '0%');
+    $('#checkSummary').html('<p>正在检查网站可用性...</p>');
+    $('#checkResults').empty();
+
+    // 获取网站数据
+    // 从webstack.json获取链接
+    $.getJSON('/webstack.json', function(data) {
+        var sites = data;
+        checkSitesAvailability(sites);
+    }).fail(function() {
+        // 如果无法获取webstack.json，则使用默认测试链接
+        var sites = [
+            {title: 'GitHub', url: 'https://github.com'},
+            {title: '百度', url: 'https://www.baidu.com'},
+            {title: '语雀', url: 'https://www.yuque.com'},
+            {title: '开源中国', url: 'https://www.oschina.net'},
+            {title: 'GitHub 404', url: 'https://github.com/this-url-should-not-exist'}
+        ];
+        checkSitesAvailability(sites);
+    });
+}
+
+function checkSitesAvailability(sites) {
+    var total = sites.length;
+    var availableCount = 0;
+    var unavailableCount = 0;
+    var unknownCount = 0; // 新增：无法确定状态的网站数量
+    var unavailableSites = [];
+    var checkedCount = 0;
+
+    if (total === 0) {
+        $('#checkSummary').html('<p class="text-warning">未找到网站链接进行检查。</p>');
+        $('#checkProgress').css('width', '100%');
+        return;
+    }
+
+    sites.forEach(function(site) {
+        // 使用 fetch API 检查网站可用性
+        var controller = new AbortController();
+        var timeout = setTimeout(() => controller.abort(), 10000); // 10秒超时
+
+        fetch(site.url, { 
+            method: 'HEAD', // 使用 HEAD 请求以减少数据传输
+            mode: 'no-cors', // 使用 no-cors 模式避免跨域问题
+            signal: controller.signal
+        })
+        .then(response => {
+            clearTimeout(timeout);
+            // 对于 no-cors 模式，我们无法获取确切的状态码
+            // 但只要能到达 then，就表示网站可以访问
+            availableCount++;
+            checkedCount++;
+            updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+        })
+        .catch(error => {
+            clearTimeout(timeout);
+            // 如果是超时错误
+            if (error.name === 'AbortError') {
+                unknownCount++; // 改为未知状态而不是直接标记为不可访问
+                checkedCount++;
+                unavailableSites.push({
+                    title: site.title,
+                    url: site.url,
+                    status: '检测超时'
+                });
+                updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+            } else {
+                // 尝试使用图片加载方式作为备选方案
+                var img = new Image();
+                var imgTimeout = setTimeout(function() {
+                    unknownCount++; // 改为未知状态
+                    checkedCount++;
+                    unavailableSites.push({
+                        title: site.title,
+                        url: site.url,
+                        status: '状态未知'
+                    });
+                    updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                    img.onerror = img.onload = null;
+                }, 5000);
+
+                img.onerror = function() {
+                    clearTimeout(imgTimeout);
+                    // 即使图片加载失败，也不代表网站不可访问，标记为状态未知
+                    unknownCount++;
+                    checkedCount++;
+                    unavailableSites.push({
+                        title: site.title,
+                        url: site.url,
+                        status: '状态未知'
+                    });
+                    updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                };
+
+                img.onload = function() {
+                    clearTimeout(imgTimeout);
+                    availableCount++;
+                    checkedCount++;
+                    updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                };
+
+                // 尝试加载网站的favicon作为备选测试
+                img.src = site.url + '/favicon.ico?' + new Date().getTime();
+            }
+        });
+    });
+}
+
+function updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites) {
+    var progress = Math.round((checkedCount / total) * 100);
+    $('#checkProgress').css('width', progress + '%');
+
+    var summaryHtml = `
+        <p>检查进度: ${checkedCount}/${total}</p>
+        <p>可访问: <span class="text-success">${availableCount}</span> 个网站</p>
+        <p>不可访问: <span class="text-danger">${unavailableCount}</span> 个网站</p>
+        <p>状态未知: <span class="text-warning">${unknownCount}</span> 个网站</p>
+    `;
+
+    $('#checkSummary').html(summaryHtml);
+
+    // 检查完成时显示详细结果
+    if (checkedCount === total) {
+        var resultsHtml = '';
+        if (unavailableSites.length > 0) {
+            resultsHtml += '<h5>可能不可访问的网站:</h5><ul class="list-group">';
+            unavailableSites.forEach(function(site) {
+                var badgeClass = site.status === '检测超时' || site.status === '状态未知' ? 'badge-warning' : 'badge-danger';
+                resultsHtml += `
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${site.title}
+                        <span>
+                            <a href="${site.url}" target="_blank">${site.url}</a>
+                            <span class="badge ${badgeClass} badge-pill ml-2">${site.status}</span>
+                        </span>
+                    </li>
+                `;
+            });
+            resultsHtml += '</ul>';
+            resultsHtml += '<div class="alert alert-info mt-3"><strong>提示:</strong> 标记为"状态未知"或"检测超时"的网站可能仍然可以正常访问，建议手动检查确认。</div>';
+        } else {
+            resultsHtml += '<p class="text-success">所有网站均可正常访问！</p>';
+        }
+
+        $('#checkResults').html(resultsHtml);
+    }
+}

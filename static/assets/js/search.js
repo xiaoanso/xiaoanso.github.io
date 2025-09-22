@@ -7,7 +7,7 @@ class SiteSearch {
     async init() {
         try {
             console.log('正在加载搜索索引...');
-            const response = await fetch('/index.json');
+            const response = await fetch('/posts.json');
             this.index = await response.json();
             console.log('搜索索引加载完成:', this.index);
             this.bindEvents();

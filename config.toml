@@ -1,6 +1,6 @@
-baseURL               = "https://webstack-hugo.weiyan.cc/"
+baseURL               = "https://xiaoanso.github.io/"
 languageCode          = "zh-CN"
-title                 = "WebStack-Hugo 网址导航"
+title                 = "小安驿站 网站搜索导航"
 #theme                 = "WebStack-Hugo"
 preserveTaxonomyNames = true
 disablePathToLower    = true
@@ -8,21 +8,28 @@ hasCJKLanguage        = true
 publishDir            = "public"				# 站点静态文件保存目录
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "POSTS", "WEBSTACK"]
 
 [outputFormats]
-  [outputFormats.JSON]
+  [outputFormats.POSTS]
     mediaType = "application/json"
-    baseName = "index"
+    baseName = "posts"
+    isPlainText = true
+    
+  [outputFormats.WEBSTACK]
+    mediaType = "application/json"
+    baseName = "webstack"
+    isPlainText = true
 
 [params]
-    author        = "shenweiyan"
-    description   = "Webstack-Hugo 网址导航 | Hugo 主题 BY Bio IT 爱好者"
+    author        = "xiaoan"
+    description   = "小安驿站 网站搜索导航 | 专注分享好用的软件、网站、代码、教程，希望帮助到你 "
     upload        = "https://www.yuque.com/forms/share/1a1fee15-f7a9-4ee6-9dd4-b0ba9fef1871"      # 左侧导航栏的"网站提交"
     about         = "https://github.com/shenweiyan/Knowledge-Garden/discussions/10"	          # 左侧导航栏的"关于导航"页面(./about)
-    repository    = "https://github.com/shenweiyan/WebStack-Hugo"  
+    repository    = "https://github.com/xiaoanso/xiaoanso.github.io"
+    connect       = "https://mp.weixin.qq.com/s/mL9VGXGOz0bSgGmaE2ZUgA"
     enablePreLoad = true					# 网站完全打开前预加载动画
-    textPreLoad   = "Hugo 网址导航主题"				# 预加载的动画文字, 只有当enablePreLoad=true时生效
+    textPreLoad   = "小安驿站 网站搜索导航"				# 预加载的动画文字, 只有当enablePreLoad=true时生效
     expandSidebar = true					# 默认展开左侧边导航栏
     logosPath     = "assets/images/logos"			# 网站每个导航地址logo存放地址
     defaultLogo   = "assets/images/logos/default.webp"		# logo图片资源不存在或者错误时, 默认显示的logo; 该参数如为空,将会一直加载对应的logo,直至成功

@@ -549,44 +549,110 @@
           description: Discover the world's most beautiful places at every opened tab.
 
 
-- taxonomy: 资讯学习
+- taxonomy: 媒体运营
   icon: fas fa-pencil-alt fa-lg
-  list: 
-    - term: 资讯书籍
+  list:
+    - term: 公众号
       links:
-        - title: 微信读书
-          url: https://weread.qq.com/
-          logo: 微信读书.jpg
-          description: 微信读书电脑版。
-        - title: 书栈网
-          url: https://www.bookstack.cn/
-          logo: 书栈网.jpg
-          description: IT 互联网开源编程书籍免费阅读与下载。
-    - term: 博客论坛
+        - title: 公众号平台
+          url: https://mp.weixin.qq.com/
+          logo: 公众号.png
+          description: 愿大家出走半生，归来仍是少年。
+        - title: 公众号运营规范
+          url: https://mp.weixin.qq.com/mp/opshowpage?action=newoplaw&token=2102862819&lang=zh_CN
+          logo: 公众号规范.png
+          description: 为用户提供绿色、健康的生态环境。
+        - title: 新榜
+          url: https://www.newrank.cn/hotInfo?platform=GZH
+          logo: 新榜.png
+          description: 新媒体、找新榜。
+        - title: 易撰
+          url: https://www.yizhuan5.com/
+          logo: 易撰.png
+          description: 让创作更高效。
+        - title: 零克查词
+          url: https://www.lingkechaci.com/
+          logo: 零克查词.png
+          description: 专业的小红书、抖音、B站、小红书敏感词检测工具。
+    - term: 编辑器
       links:
-        - title: Inoreader
-          url: https://www.inoreader.com/
-          logo: inoreader.jpg
-          description: 重新掌控你的新闻订阅源。
-        - title: Hacker News
-          url: https://news.ycombinator.com/
-          logo: hacker-news.jpg
-          description: 一家关于计算机黑客和创业公司的社会化新闻网站。
-        - title: 经管之家
-          url: https://bbs.pinggu.org/
-          logo: 经管之家.jpg
-          description: 国内活跃的经济、管理、金融、统计在线教育和咨询网站。
-        - title: 阮一峰的网络日志
-          url: http://www.ruanyifeng.com/blog/
-          logo: 阮一峰.png
-          description: 阮一峰，科技爱好者周刊。
-        - title: 酷壳
-          url: https://www.coolshell.cn/
-          logo: 酷壳.png
-          description: 酷 壳 – CoolShell。
-    - term: 设计规范
+        - title: 壹伴
+          url: https://yibanbianji.com/
+          logo: 壹伴.png
+          description: 更好用的微信编辑器，但不止于此。
+        - title: 135编辑器
+          url: https://www.135editor.com
+          logo: 135编辑器.png
+          description: 135编辑器官网_微信公众号图文排版工具_一键在线文章内容编辑器。
+        - title: 秀米
+          url: https://xiumi.us
+          logo: 秀米.png
+          description: 微信公众号排版和H5制作。
+        - title: 135编辑器
+          url: https://www.135editor.com
+          logo: 135编辑器.png
+          description: 1微信公众号图文排版工具_一键在线文章内容编辑器。
+        - title: 96编辑器
+          url: https://bj.96weixin.com
+          logo: 96编辑器.png
+          description: 9微信公众平台图文排版工具 微信编辑器哪个好 在线内容编辑软件。
+        - title: 易点编辑器
+          url: https://www.wxeditor.com
+          logo: 易点编辑器.png
+          description: 专业微信公众号排版工具_图文编辑 内容排版软件。
+        - title: 主编微信编辑器
+          url: https://www.zhubian.com
+          logo: 主编编辑器.png
+          description: 微信公众平台图文排版工具 微信编辑器素材。
+        - title: 小墨鹰编辑器
+          url: https://www.xmyeditor.com/
+          logo: 小墨鹰编辑器.png
+          description: 微信公众号图文排版工具_一键在线文章内容编辑器
+        - title: MarkDown编辑器
+          url: https://markdown.com.cn/editor
+          logo: markdown.png
+          description: 支持主题切换的 Markdown 编辑器
+        - title: 微信 Markdown 编辑器
+          url: https://www.md2wechat.cn/
+          logo: md2wechat.png
+          description: 沉浸创作，美由心生，为优雅阅读设计，为优质内容而生
+    - term: 图片设计
       links:
-        - title: Design Guidelines
+        - title: 稿定设计
+          url: https://www.gaoding.com
+          logo: 稿定.png
+          description: 在线设计平台_海报设计_图片设计_视频编辑_设计协作。
+        - title: 创客贴
+          url: https://www.135editor.com
+          logo: 135编辑器.png
+          description: 135编辑器官网_微信公众号图文排版工具_一键在线文章内容编辑器。
+        - title: 比格设计
+          url: https://xiumi.us
+          logo: 秀米.png
+          description: 微信公众号排版和H5制作。
+        - title: 爱设计
+          url: https://www.135editor.com
+          logo: 135编辑器.png
+          description: 1微信公众号图文排版工具_一键在线文章内容编辑器。
+        - title: 易企秀
+          url: https://bj.96weixin.com
+          logo: 96编辑器.png
+          description: 9微信公众平台图文排版工具 微信编辑器哪个好 在线内容编辑软件。
+        - title: 标智客
+          url: https://www.wxeditor.com
+          logo: 易点编辑器.png
+          description: 专业微信公众号排版工具_图文编辑 内容排版软件。
+        - title: 标小智
+          url: https://www.zhubian.com
+          logo: 主编编辑器.png
+          description: 微信公众平台图文排版工具 微信编辑器素材。
+        - title: 小墨鹰编辑器
+          url: https://www.xmyeditor.com/
+          logo: 小墨鹰编辑器.png
+          description: 微信公众号图文排版工具_一键在线文章内容编辑器。
+    - term: 图片素材
+      links:
+        - title: 稿定设计
           url: http://designguidelines.co/
           logo: designguidelines.png
           description: Design Guidelines &mdash; The way products are built.
@@ -624,4 +690,103 @@
           url: https://www.imooc.com/
           logo: imooc.png
           description: 程序员的梦工厂（有UI课程）。
-        
+
+- taxonomy: 科技资讯
+  icon: fas fa-chalkboard-teacher fa-lg
+  list:
+    - term: 软件站点
+      links:
+        - title: IT之家
+          url: https://soft.ithome.com/
+          logo: IT之家.png
+          description: 软件之家。
+        - title: 少数派
+          url: https://sspai.com/
+          logo: 少数派.png
+          description: 高效工作、品质生活。
+        - title: 小众软件
+          url: https://www.appinn.com/
+          logo: 小众软件.png
+          description: 分享免费、小巧、实用、有趣、绿色的软件。
+        - title: 反斗软件
+          url: https://www.apprcn.com/
+          logo: 反斗软件.png
+          description: 关注个人软件和绿色软件。
+        - title: 果核剥壳
+          url: https://www.ghxi.com/
+          logo: 果核剥壳.png
+          description: 互联网的净土。
+        - title: 异次元软件
+          url: https://www.iplaysoft.com/
+          logo: 异次元软件.png
+          description: 异次元软件世界 - 软件改变生活。
+        - title: 吾爱破解
+          url: https://www.52pojie.cn/forum-2-1.html
+          logo: 吾爱破解.png
+          description: 注册机,注册码,内存补丁,破解版,绿色版,汉化版,工具。
+    - term: 科技博客
+      links:
+        - title: 不死鸟
+          url: https://iui.su/
+          logo: 不死鸟.png
+          description: 分享为王官网。
+        - title: 阮一峰的网络日志
+          url: http://www.ruanyifeng.com/blog/
+          logo: 阮一峰.png
+          description: 阮一峰，科技爱好者周刊。
+        - title: 科技爱好者周刊
+          url: https://github.com/ruanyf/weekly/issues
+          logo: 科技爱好者周刊.png
+          description: 记录每周值得分享的科技内容
+        - title: ABABTOOLS
+          url: https://ababtools.com/
+          logo: ABABTOOLS.png
+          description: 一个集合了各种好玩又实用的宝藏之地。
+        - title: 书栈网
+          url: https://www.bookstack.cn/
+          logo: 书栈网.jpg
+          description: IT 互联网开源编程书籍免费阅读与下载
+    - term: 扩展插件
+      links:
+        - title: CRX搜搜
+          url: https://www.crxsoso.com/
+          logo: crx搜搜.png
+          description: 一个牛X的扩展和应用商店
+        - title: 极简插件
+          url: https://chrome.zzzmh.cn/
+          logo: 极简插件.png
+          description:  Chrome浏览器扩展插件商店的搬运工。
+        - title: 搜脚本加速站
+          url: https://soujiaoben.org/#/pages/list/list
+          logo: 搜脚本.png
+          description: 索全网脚本并提供Greasy Fork、ScriptCat、OpenUserJS、GitHub-gist等平台的加速访问服务
+        - title: GreasyFork镜像
+          url: https://gf.qytechs.cn/zh-CN
+          logo: greasyFork镜像.png
+          description: 一个专为用户脚本打造的网站.
+        - title: 脚本猫Scriptcat
+          url: https://scriptcat.org/zh-CN
+          logo: 脚本猫.png
+          description: 发现和分享优质用户脚本，让浏览体验更精彩。
+        - title: 篡改猴Tampermonkey
+          url: https://www.tampermonkey.net/index.php?locale=zh
+          logo: 篡改猴.png
+          description: 最流行的浏览器扩展之一。
+    - term: 视频教程
+      links:
+        - title: Photoshop Lady
+          url: http://www.photoshoplady.com/
+          logo: PhotoshopLady.png
+          description: Your Favourite Photoshop Tutorials in One Place.
+        - title: doyoudo
+          url: http://doyoudo.com/
+          logo: doyoudo.png
+          description: 创意设计软件学习平台。
+        - title: 没位道
+          url: http://www.c945.com/web-ui-tutorial/
+          logo: web_ui_tutorial.png
+          description: WEB UI免费视频公开课。
+        - title: 慕课网
+          url: https://www.imooc.com/
+          logo: imooc.png
+          description: 程序员的梦工厂（有UI课程）。
