@@ -8,8 +8,11 @@
                     rel="search" one-link-mark="yes">
                     <i class="iconfont icon-search"></i>
                 </a>
-                <a href="https://www.yuque.com/shenweiyan" class="btn rounded-circle kefu m-1" target="_blank" data-toggle="tooltip" data-placement="left" title="联系我们">
-                    <i class="mode-ico iconfont icon-qq"></i>
+                <a href="{{ $.Site.Params.connect }}" class="btn rounded-circle kefu m-1" target="_blank" data-toggle="tooltip" data-placement="left" title="联系我们">
+                    <i class="fab fa-weixin"></i>
+                </a>
+                <a href="javascript:" onclick="window.location.href='javascript:checkWebURL()'" class="btn rounded-circle kefu m-1" target="_blank" data-toggle="tooltip" data-placement="left" title="检查网站">
+                    <i class="fas fa-link"></i>
                 </a>
                 <!-- 右下角搜索 end -->
                 {{ if $.Site.Params.nightMode }} 
@@ -18,7 +21,7 @@
                     <i class="mode-ico iconfont icon-light"></i>
                 </a>
 		{{ else }}
-		<a href="javascript:" onclick="window.location.href='javascript:switchNightMode()'" class="btn rounded-circle switch-dark-mode m-1" id="yejian"
+		<a href="javascript:" onclick="window.location.href='javascript:switchNightMode()'" class="btn rounded-circle switch-dark-mode m-1" id="rijian"
                     data-toggle="tooltip" data-placement="left" title="日间模式">
                     <i class="mode-ico iconfont icon-night"></i>
                 </a>
