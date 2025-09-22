@@ -9,6 +9,7 @@ pkill -f "hugo server.*--port 64341" >/dev/null 2>&1
 # 等待旧进程完全终止
 sleep 2
 
+# 删除编译目录
 rm -rf public/*
 
 # 启动新服务
