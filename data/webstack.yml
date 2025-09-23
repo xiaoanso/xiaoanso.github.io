@@ -528,7 +528,7 @@
           logo: wappalyzer.png
           description: Identify technology on websites.
         - title: Panda
-          url: http://usepanda.com/
+          url: https://usepanda.com/
           logo: usepanda.png
           description: A smart news reader built for productivity.
         - title: sizzy

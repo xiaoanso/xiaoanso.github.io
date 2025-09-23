@@ -3,12 +3,12 @@ var hotList = 0;
 var searchType = "baidu"; // 默认搜索引擎
 var thisSearch = "https://www.baidu.com/s?wd="; // 默认搜索引擎URL
 
-$(function() {
+$(function () {
     // 监听搜索类型变化
-    $('.search-type input').on('change', function() {
+    $('.search-type input').on('change', function () {
         searchType = $(this).attr('id').replace('type-', '');
         thisSearch = $(this).val();
-        
+
         // 如果是站内搜索，修改表单提交行为
         if (searchType === 'site') {
             $('.super-search-fm').attr('action', 'javascript:;');
@@ -17,43 +17,46 @@ $(function() {
             $('.super-search-fm').attr('action', thisSearch.split('?')[0]);
             $('.super-search-fm').attr('target', '_blank');
         }
-        
+
         // 更新搜索框的占位符
         $('#search-text').attr('placeholder', $(this).attr('data-placeholder'));
     });
 
     // 当键盘键被松开时发送Ajax获取数据
-    $('#search-text').keyup(function() {
+    $('#search-text').keyup(function () {
         var keywords = $(this).val();
-        if (keywords == '') { $('#word').hide(); return };
-        
+        if (keywords == '') {
+            $('#word').hide();
+            return
+        }
+        ;
+
         // 如果是站内搜索，不使用百度建议词
         if (searchType === 'site') {
             $('#word').hide();
             return;
         }
-        
+
         $.ajax({
             url: 'https://suggestion.baidu.com/su?wd=' + keywords,
             dataType: 'jsonp',
             jsonp: 'cb', //回调函数的参数名(键值)key
             // jsonpCallback: 'fun', //回调函数名(值) value
-            beforeSend: function() {
+            beforeSend: function () {
                 // $('#word').append('<li>正在加载。。。</li>');
             },
-            success: function(res) {
+            success: function (res) {
                 $('#word').empty().show();
                 hotList = res.s.length;
                 if (hotList) {
                     $("#word").css("display", "block");
-                    for (var i = 0; i < hotList-1; i++) {
-                        if (i===hotList-1){
+                    for (var i = 0; i < hotList - 1; i++) {
+                        if (i === hotList - 1) {
                             $("#word").append('<li id="lastHot"><span>' + (i + 1) + "</span>" + res.s[i] + "</li>");
-                        }
-                        else{
+                        } else {
                             $("#word").append("<li><span>" + (i + 1) + "</span>" + res.s[i] + "</li>");
                         }
-                        $("#word li").eq(i).click(function() {
+                        $("#word li").eq(i).click(function () {
                             $('#search-text').val(this.childNodes[1].nodeValue);
                             if (searchType === 'site') {
                                 performSiteSearch(this.childNodes[1].nodeValue);
@@ -81,12 +84,12 @@ $(function() {
                                 "background": "#ffac38"
                             })
                         }
-                    } 
+                    }
                 } else {
-                        $("#word").css("display", "none")
+                    $("#word").css("display", "none")
                 }
             },
-            error: function() {
+            error: function () {
                 $('#word').empty().show();
                 //$('#word').append('<div class="click_work">Fail "' + keywords + '"</div>');
                 $('#word').hide();
@@ -95,35 +98,35 @@ $(function() {
     })
 
     // 点击搜索数据复制给搜索框
-    $(document).on('click', '#word li', function() {
+    $(document).on('click', '#word li', function () {
         var word = $(this).text().replace(/^[0-9]/, '');
         $('#search-text').val(word);
         $('#word').empty();
         $('#word').hide();
         //$("form").submit();
-         $('.submit').trigger('click');//触发搜索事件
+        $('.submit').trigger('click');//触发搜索事件
     })
-    
+
     // 表单提交事件
-    $('.super-search-fm').on('submit', function(e) {
+    $('.super-search-fm').on('submit', function (e) {
         var keywords = $('#search-text').val();
         if (searchType === 'site') {
             e.preventDefault();
             performSiteSearch(keywords);
         }
     });
-    
+
     // 点击搜索按钮事件
-    $('.submit').on('click', function() {
+    $('.submit').on('click', function () {
         var keywords = $('#search-text').val();
         if (searchType === 'site') {
             performSiteSearch(keywords);
             return false;
         }
     });
-    
+
     //$(document).on('click', '.container,.banner-video,nav', function() {
-    $(document).on('click', '.io-grey-mode', function() {
+    $(document).on('click', '.io-grey-mode', function () {
         $('#word').empty();
         $('#word').hide();
     })
@@ -133,7 +136,7 @@ $(function() {
 // 站内搜索函数
 function performSiteSearch(keywords) {
     if (!keywords) return;
-    
+
     // 创建一个新页面显示搜索结果
     var searchWindow = window.open('', '_blank');
     var searchContent = `
@@ -240,7 +243,7 @@ function performSiteSearch(keywords) {
         <\/script>
     </body>
     </html>`;
-    
+
     searchWindow.document.write(searchContent);
     searchWindow.document.close();
 }
@@ -286,10 +289,10 @@ function checkWebURL() {
 
     // 获取网站数据
     // 从webstack.json获取链接
-    $.getJSON('/webstack.json', function(data) {
+    $.getJSON('/webstack.json', function (data) {
         var sites = data;
         checkSitesAvailability(sites);
-    }).fail(function() {
+    }).fail(function () {
         // 如果无法获取webstack.json，则使用默认测试链接
         var sites = [
             {title: 'GitHub', url: 'https://github.com'},
@@ -316,75 +319,117 @@ function checkSitesAvailability(sites) {
         return;
     }
 
-    sites.forEach(function(site) {
+    sites.forEach(function (site) {
         // 使用 fetch API 检查网站可用性
+        // 去掉 URL 末尾的斜杠
+        var cleanUrl = site.url;
+        if (cleanUrl.endsWith('/')) {
+            cleanUrl = cleanUrl.slice(0, -1);
+        }
         var controller = new AbortController();
         var timeout = setTimeout(() => controller.abort(), 10000); // 10秒超时
 
-        fetch(site.url, { 
+        fetch(cleanUrl, {
             method: 'HEAD', // 使用 HEAD 请求以减少数据传输
             mode: 'no-cors', // 使用 no-cors 模式避免跨域问题
             signal: controller.signal
         })
-        .then(response => {
-            clearTimeout(timeout);
-            // 对于 no-cors 模式，我们无法获取确切的状态码
-            // 但只要能到达 then，就表示网站可以访问
-            availableCount++;
-            checkedCount++;
-            updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
-        })
-        .catch(error => {
-            clearTimeout(timeout);
-            // 如果是超时错误
-            if (error.name === 'AbortError') {
-                unknownCount++; // 改为未知状态而不是直接标记为不可访问
+            .then(response => {
+                clearTimeout(timeout);
+                // 对于 no-cors 模式，我们无法获取确切的状态码
+                // 但只要能到达 then，就表示网站可以访问
+                availableCount++;
                 checkedCount++;
-                unavailableSites.push({
-                    title: site.title,
-                    url: site.url,
-                    status: '检测超时'
-                });
                 updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
-            } else {
-                // 尝试使用图片加载方式作为备选方案
-                var img = new Image();
-                var imgTimeout = setTimeout(function() {
-                    unknownCount++; // 改为未知状态
+            })
+            .catch(error => {
+                clearTimeout(timeout);
+                // 如果是超时错误
+                if (error.name === 'AbortError') {
+                    unknownCount++; // 改为未知状态而不是直接标记为不可访问
                     checkedCount++;
                     unavailableSites.push({
                         title: site.title,
-                        url: site.url,
-                        status: '状态未知'
+                        url: cleanUrl,
+                        status: '检测超时'
                     });
                     updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
-                    img.onerror = img.onload = null;
-                }, 5000);
+                } else {
+                    // 尝试检查 favicon 是否可以访问
+                    var faviconUrl = cleanUrl + '/favicon.ico';
+                    var faviconController = new AbortController();
+                    var faviconTimeout = setTimeout(() => faviconController.abort(), 5000); // 5秒超时
 
-                img.onerror = function() {
-                    clearTimeout(imgTimeout);
-                    // 即使图片加载失败，也不代表网站不可访问，标记为状态未知
-                    unknownCount++;
-                    checkedCount++;
-                    unavailableSites.push({
-                        title: site.title,
-                        url: site.url,
-                        status: '状态未知'
-                    });
-                    updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
-                };
+                    fetch(faviconUrl, {
+                        method: 'HEAD',
+                        mode: 'no-cors',
+                        signal: faviconController.signal
+                    })
+                        .then(faviconResponse => {
+                            clearTimeout(faviconTimeout);
+                            // 如果能成功获取 favicon，则认为网站可访问
+                            availableCount++;
+                            checkedCount++;
+                            updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                        })
+                        .catch(faviconError => {
+                            clearTimeout(faviconTimeout);
+                            // 处理 favicon 请求被客户端阻止的情况
+                            if (faviconError.name === 'TypeError' &&
+                                (faviconError.message.includes('Failed to fetch') ||
+                                    faviconError.message.includes('blocked'))) {
+                                // 请求被阻止，这可能是因为浏览器扩展或安全设置
+                                // 我们无法确定网站状态，标记为未知
+                                unknownCount++;
+                                checkedCount++;
+                                unavailableSites.push({
+                                    title: site.title,
+                                    url: cleanUrl,
+                                    status: '客户端阻止'
+                                });
+                                updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                                return;
+                            }
 
-                img.onload = function() {
-                    clearTimeout(imgTimeout);
-                    availableCount++;
-                    checkedCount++;
-                    updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
-                };
+                            // favicon 也无法获取，尝试使用图片加载方式作为备选方案
+                            var img = new Image();
+                            var imgTimeout = setTimeout(function () {
+                                unknownCount++; // 改为未知状态
+                                checkedCount++;
+                                unavailableSites.push({
+                                    title: site.title,
+                                    url: cleanUrl,
+                                    status: '状态未知'
+                                });
+                                updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                                img.onerror = img.onload = null;
+                            }, 5000);
 
-                // 尝试加载网站的favicon作为备选测试
-                img.src = site.url + '/favicon.ico?' + new Date().getTime();
-            }
-        });
+                            img.onerror = function () {
+                                clearTimeout(imgTimeout);
+                                // 即使图片加载失败，也不代表网站不可访问，标记为状态未知
+                                unknownCount++;
+                                checkedCount++;
+                                unavailableSites.push({
+                                    title: site.title,
+                                    url: cleanUrl,
+                                    status: '状态未知'
+                                });
+                                updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                            };
+
+                            img.onload = function () {
+                                clearTimeout(imgTimeout);
+                                availableCount++;
+                                checkedCount++;
+                                updateCheckProgress(checkedCount, total, availableCount, unavailableCount, unknownCount, unavailableSites);
+                            };
+
+                            // 尝试加载网站的favicon作为备选测试
+                            img.src = faviconUrl + '?' + new Date().getTime();
+                        });
+                }
+            });
     });
 }
 
@@ -406,8 +451,14 @@ function updateCheckProgress(checkedCount, total, availableCount, unavailableCou
         var resultsHtml = '';
         if (unavailableSites.length > 0) {
             resultsHtml += '<h5>可能不可访问的网站:</h5><ul class="list-group">';
-            unavailableSites.forEach(function(site) {
-                var badgeClass = site.status === '检测超时' || site.status === '状态未知' ? 'badge-warning' : 'badge-danger';
+            unavailableSites.forEach(function (site) {
+                var badgeClass = 'badge-danger';
+                if (site.status === '检测超时' || site.status === '状态未知') {
+                    badgeClass = 'badge-warning';
+                } else if (site.status === '客户端阻止') {
+                    badgeClass = 'badge-info';
+                }
+
                 resultsHtml += `
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         ${site.title}
@@ -419,7 +470,7 @@ function updateCheckProgress(checkedCount, total, availableCount, unavailableCou
                 `;
             });
             resultsHtml += '</ul>';
-            resultsHtml += '<div class="alert alert-info mt-3"><strong>提示:</strong> 标记为"状态未知"或"检测超时"的网站可能仍然可以正常访问，建议手动检查确认。</div>';
+            resultsHtml += '<div class="alert alert-info mt-3"><strong>提示:</strong> 标记为"状态未知"、"检测超时"或"客户端阻止"的网站可能仍然可以正常访问，建议手动检查确认。<br>"客户端阻止"表示请求被浏览器扩展或安全设置阻止。</div>';
         } else {
             resultsHtml += '<p class="text-success">所有网站均可正常访问！</p>';
         }
