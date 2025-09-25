@@ -1,30 +1,45 @@
 # .github/workflows/hugo.yml
+# 工作流名称，显示在 GitHub Actions 界面中
 name: Hugo Actions
 
+# 定义触发工作流的事件
 on:
+  # 当推送到 main 分支时触发
   push:
     branches:
       - main
       
+# 设置 GITHUB_TOKEN 的权限
 permissions:
   contents: write
   pages: write
+  id-token: write
 
+# 允许一个并发部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# 定义工作流中的任务
 jobs:
   deploy:
+    # 运行环境为最新版 Ubuntu
     runs-on: ubuntu-latest
     steps:
+      # 检出代码仓库
       - uses: actions/checkout@v4
         with:
           submodules: false
           fetch-depth: 0
 
+      # 安装 Hugo 环境
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.122.0'
           extended: false
 
+      # 注释掉的准备站点步骤
       #- name: Prepare site
       #  run: |
           # 复制 exampleSite 内容到根目录
@@ -32,10 +47,12 @@ jobs:
           # 修改 config.toml 中的主题路径
           # sed -i 's|theme = "WebStack-Hugo"|theme = "layouts"|' config.toml
 
+      # 构建站点
       - name: Build Site
         run: |
           hugo --config config.toml --baseURL https://xiaoanso.github.io
 
+      # 部署到 GitHub Pages
       - name: Deploy Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -44,3 +61,18 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
           full_commit_message: ${{ github.event.head_commit.message }}
+
+      # 设置 Node.js 环境用于网站可用性检查
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      # 安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 检查网站可用性
+      - name: Check site availability
+        run: node site-checker.js

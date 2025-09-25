@@ -1,0 +1,24 @@
+{
+  "name": "xiaoanso.github.io",
+  "version": "1.0.0",
+  "description": "> [!NOTE] > **2025年05月17日：更多新功能，请参考：<https://github.com/PagesX> 项目！**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoanso/xiaoanso.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/xiaoanso/xiaoanso.github.io/issues"
+  },
+  "homepage": "https://github.com/xiaoanso/xiaoanso.github.io#readme",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}

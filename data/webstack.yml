@@ -150,7 +150,7 @@
       links:
         - title: 百度贴吧
           logo: 百度贴吧.jpg
-          url: https://tieba.baidu.com/index.html
+          url: https://tieba.baidu.com
           description: 百度贴吧。
         - title: 台服战地
           logo: 战地之王.png
@@ -231,7 +231,7 @@
           description: The premium icon font for Ionic Framework.
         - title: Simpleline Icons
           logo: simplelineicons.png
-          url: http://simplelineicons.com/
+          url: https://www.namecheap.com/
           description: Simple line Icons pack.
     - term: 图标设计
       links:
@@ -249,7 +249,7 @@
           description: Brand logos free to download.
         - title: Instant Logo Search
           logo: InstantLogoSearch.png
-          url: http://instantlogosearch.com/
+          url: https://www.namecheap.com/visual/font-generator/
           description: Search & download thousands of logos instantly.
     - term: 平面素材
       links:
@@ -320,7 +320,7 @@
           logo: Fondertype.png
           description: 方正字库官方网站。
         - title: 字体传奇网
-          url: http://ziticq.com/
+          url: https://ziticq.com/
           logo: ziticq.png
           description: 中国首个字体品牌设计师交流网。
         - title: 私藏字体
@@ -387,11 +387,11 @@
           logo: Illustrator.png
           description: 矢量图形和插图。
         - title: indesign
-          url: http://www.adobe.com/cn/products/indesign.html
+          url: http://www.adobe.com
           logo: INDESIGN .png
           description: 页面设计、布局和出版。
         - title: cinema-4d
-          url: https://www.maxon.net/en/products/cinema-4d/overview/
+          url: https://www.maxon.net
           logo: cinema4d.png
           description: Cinema 4D is the perfect package for all 3D artists who want to achieve breathtaking results fast and hassle-free.
         - title: 3ds-max

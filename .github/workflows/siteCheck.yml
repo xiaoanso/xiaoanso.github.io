@@ -1,0 +1,39 @@
+# .github/workflows/daily-site-check.yml
+# 每日网站可用性检查工作流
+name: Daily Site Availability Check
+
+# 定义触发工作流的事件
+on:
+  # 定时执行计划
+  schedule:
+    # 定时运行的时间，国际标准时间，北京时间要+8
+    - cron: '0 9 * * *'
+  # 允许手动触发工作流
+  workflow_dispatch:
+
+# 定义工作流中的任务
+jobs:
+  check-sites:
+    # 运行环境为最新版 Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # 检出代码仓库
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      # 设置 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      # 安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 执行网站可用性检查脚本
+      - name: Check site availability
+        run: node siteChecker.js
