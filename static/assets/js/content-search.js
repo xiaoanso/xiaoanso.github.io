@@ -273,6 +273,13 @@ function displayCheckResults(data) {
                     </button>
                 </div>
                 <div class="modal-body">
+                    <!-- 进度条 -->
+                    <div id="checkProgress" class="progress" style="height: 20px; display: none;">
+                        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                             role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" 
+                             aria-valuemax="100"></div>
+                    </div>
+                    <div id="progressText" class="text-center mt-2 mb-3" style="display: none;"></div>
                     <div id="checkSummary" class="mt-3"></div>
                     <div id="checkResults" class="mt-3"></div>
                 </div>
@@ -287,8 +294,39 @@ function displayCheckResults(data) {
     $('#checkUrlModal').remove();
     $('body').append(modalHtml);
 
+    // 显示进度条和模拟检查过程
+    $('#checkProgress').show();
+    $('#progressText').show();
+    $('#checkSummary').hide();
+    $('#checkResults').hide();
+    
     $('#checkUrlModal').modal('show');
+    
+    // 模拟进度条动画
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 10) + 1; // 随机增加进度
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            
+            // 进度完成，显示结果
+            setTimeout(() => {
+                $('#checkProgress').hide();
+                $('#progressText').hide();
+                $('#checkSummary').show();
+                $('#checkResults').show();
+                showCheckResults(data);
+            }, 300);
+        }
+        
+        $('#progressBar').css('width', progress + '%');
+        $('#progressBar').attr('aria-valuenow', progress);
+        $('#progressText').text('正在检查网站可用性: ' + progress + '%');
+    }, 100);
+}
 
+function showCheckResults(data) {
     // 显示结果
     const summary = data.summary;
     var summaryHtml = `

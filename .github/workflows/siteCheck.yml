@@ -1,4 +1,4 @@
-# .github/workflows/daily-site-check.yml
+# .github/workflows/siteCheck.yml
 # 每日网站可用性检查工作流
 name: Daily Site Availability Check
 
