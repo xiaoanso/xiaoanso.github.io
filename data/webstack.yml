@@ -4,19 +4,19 @@
   icon: far fa-star
   links: 
     - title: 语雀5
-      logo: 语雀.webp
+      logo: yuque.webp
       url: https://www.yuque.com/
       description: 专业的云端知识库。
     - title: QQ 邮箱
-      logo: qq邮箱.png
+      logo: mail.qq.png
       url: http://mail.qq.com/
       description: 腾讯 QQ 邮箱。
     - title: 开源中国
-      logo: 开源中国.jpg
+      logo: oschina.jpg
       url: https://www.oschina.net/
       description: 中文开源技术交流社区。
     - title: 公众号平台
-      logo: 微信公众号.png
+      logo: mp.weixin.qq1.png
       url: https://mp.weixin.qq.com/
       description: 再小的个体也有自己的品牌。
     - title: GitHub
@@ -24,11 +24,11 @@
       url: https://github.com/
       description: GitHub 开源社区。
     - title: 搜狗微信
-      logo: 搜狗微信.jpg
+      logo: weixin.sogou.jpg
       url: https://weixin.sogou.com/
       description: 搜狗微信搜索，一搜即达。
     - title: 知乎
-      logo: 知乎.png
+      logo: zhihu.png
       url: https://www.zhihu.com/
       description: 知乎社区。
     - title: V2EX
@@ -36,10 +36,10 @@
       url: https://www.v2ex.com/
       description: V2EX 创意工作者的社区。
     - title: 关注我们
-      logo: 关注.jpg
-      url: https://www.bioitee.com
+      logo: xiaoanso.jpg
+      url: https://www.xiaoanso.cn
       qrcode: qrcode.jpg
-      description: 微信公众号：BioIT 爱好者！
+      description: 微信公众号：小安驿站 软件爱好者！
 
 
 - taxonomy: 科研办公
@@ -78,37 +78,37 @@
           url: https://www.aliyun.com/
           description: 上云就上阿里云。
         - title: 腾讯云
-          logo: 腾讯云.webp
+          logo: cloud.tencent.webp
           url: https://cloud.tencent.com/
           description: 产业智变，云启未来。
         - title: 华为云
-          logo: 华为云.png
+          logo: huaweicloud.png
           url: https://www.huaweicloud.com/
           description: 提供云计算服务+智能，见未来-华为云。
         - title: 云筏科技
-          logo: 云筏.png
+          logo: cloudraft.png
           url: https://www.cloudraft.cn/
           description: 你的生信科研好选择。
         - title: 极云普惠云电脑
-          logo: 极云普惠云电脑.png
+          logo: ji-cloud.png
           url: https://www.ji-cloud.cn/
           description: 云电脑-云游戏-手机变电脑软件。
         - title: 青椒云
-          logo: 青椒云.jpg
+          logo: qingjiaocloud.jpg
           url: https://www.qingjiaocloud.com/
           description: 云桌面,一站式云电脑服务平台。
     - term: 办公学习
       links:
         - title: 有道词典
-          logo: 有道词典.png
+          logo: youdao.png
           url: https://www.youdao.com/
           description: 免费，即时的多语种在线翻译。
         - title: 有道翻译
-          logo: 有道词典.png
+          logo: youdao.png
           url: http://fanyi.youdao.com/
           description: 有道翻译。
         - title: 谷歌翻译
-          logo: 谷歌翻译.jpg
+          logo: translate.google.jpg
           url: https://translate.google.cn/
           description: 谷歌翻译。
         - title: ProcessOn
@@ -123,37 +123,37 @@
     - term: 影音视频
       links:
         - title: 腾讯视频
-          logo: 腾讯视频.png
+          logo: v.qq.png
           url: http://v.qq.com/
           description: 腾讯视频，海量视频在线观看。
         - title: 优酷
-          logo: 优酷.png
+          logo: youku.png
           url: http://www.youku.com/
           description: 优酷 - 这个世界很酷。
         - title: 爱奇艺
-          logo: 爱奇艺.png
+          logo: iqiyi.png
           url: https://www.iqiyi.com/
           description: 爱奇艺在线视频。
         - title: 哔哩哔哩
-          logo: 哔哩哔哩.png
+          logo: bilibili.png
           url: https://www.bilibili.com/
           description: Bilibili 视频弹幕网站。
         - title: QQ 音乐
-          logo: QQ音乐.jpg
+          logo: y.qq.jpg
           url: https://y.qq.com/
           description: QQ 音乐，在线听歌。
         - title: 网易云音乐
-          logo: 网易云音乐.jpg
+          logo: music.163.jpg
           url: https://music.163.com/
           description: 163 网易云音乐。
     - term: 游戏竞技
       links:
         - title: 百度贴吧
-          logo: 百度贴吧.jpg
+          logo: tieba.baidu.jpg
           url: https://tieba.baidu.com
           description: 百度贴吧。
         - title: 台服战地
-          logo: 战地之王.png
+          logo: ava.mangot5.png
           url: https://ava.mangot5.com/ava/index
           description: 台服 AVA 战地之王。
    
@@ -164,19 +164,19 @@
     - term: 网盘资源
       links:
         - title: 百度网盘
-          logo: 百度网盘.jpg
+          logo: pan.baidu.jpg
           url: http://pan.baidu.com/
           description: https://pan.baidu.com/.
         - title: 阿里云盘
-          logo: 阿里云盘.png
+          logo: aliyundrive.png
           url: https://www.aliyundrive.com/
           description: 阿里云盘，你的数字世界。
         - title: 天翼云盘
-          logo: 天翼云盘.jpg
+          logo: cloud.189.jpg
           url: https://cloud.189.cn/
           description: 家庭云|网盘|文件备份|资源分享。
         - title: 坚果云
-          logo: 坚果云.png
+          logo: jianguoyun.png
           usrl: https://www.jianguoyun.com/
           description: 坚果云官网。
     - term: 图标素材
@@ -556,57 +556,53 @@
       links:
         - title: 公众号平台
           url: https://mp.weixin.qq.com/
-          logo: 公众号.png
+          logo: mp.weixin.png
           description: 愿大家出走半生，归来仍是少年。
         - title: 公众号运营规范
           url: https://mp.weixin.qq.com/mp/opshowpage?action=newoplaw&token=2102862819&lang=zh_CN
-          logo: 公众号规范.png
+          logo: mp.weixin.qq.png
           description: 为用户提供绿色、健康的生态环境。
         - title: 新榜
           url: https://www.newrank.cn/hotInfo?platform=GZH
-          logo: 新榜.png
+          logo: newrank.png
           description: 新媒体、找新榜。
         - title: 易撰
           url: https://www.yizhuan5.com/
-          logo: 易撰.png
+          logo: yizhuan5.jpg
           description: 让创作更高效。
         - title: 零克查词
           url: https://www.lingkechaci.com/
-          logo: 零克查词.png
+          logo: lingkechaci.png
           description: 专业的小红书、抖音、B站、小红书敏感词检测工具。
     - term: 排版工具
       links:
         - title: 壹伴
           url: https://yibanbianji.com/
-          logo: 壹伴.png
+          logo: yibanbianji.png
           description: 更好用的微信编辑器，但不止于此。
         - title: 135编辑器
           url: https://www.135editor.com
-          logo: 135编辑器.png
+          logo: 135editor.png
           description: 135编辑器官网_微信公众号图文排版工具_一键在线文章内容编辑器。
         - title: 秀米
           url: https://xiumi.us
-          logo: 秀米.png
+          logo: xiumi.png
           description: 微信公众号排版和H5制作。
-        - title: 135编辑器
-          url: https://www.135editor.com
-          logo: 135编辑器.png
-          description: 1微信公众号图文排版工具_一键在线文章内容编辑器。
         - title: 96编辑器
           url: https://bj.96weixin.com
-          logo: 96编辑器.png
+          logo: 96weixin.png
           description: 9微信公众平台图文排版工具 微信编辑器哪个好 在线内容编辑软件。
         - title: 易点编辑器
           url: https://www.wxeditor.com
-          logo: 易点编辑器.png
+          logo: wxeditor.png
           description: 专业微信公众号排版工具_图文编辑 内容排版软件。
         - title: 主编微信编辑器
           url: https://www.zhubian.com
-          logo: 主编编辑器.png
+          logo: zhubian.png
           description: 微信公众平台图文排版工具 微信编辑器素材。
         - title: 小墨鹰编辑器
           url: https://www.xmyeditor.com/
-          logo: 小墨鹰编辑器.png
+          logo: xmyeditor.png
           description: 微信公众号图文排版工具_一键在线文章内容编辑器
         - title: MarkDown编辑器
           url: https://markdown.com.cn/editor
@@ -620,35 +616,35 @@
       links:
         - title: 稿定设计
           url: https://www.gaoding.com
-          logo: 稿定.png
+          logo: gaoding1.png
           description: 在线设计平台_海报设计_图片设计_视频编辑_设计协作。
         - title: 创客贴
           url: https://www.chuangkit.com
-          logo: 创客贴.png
+          logo: chuangkit.png
           description: 平面设计作图神器_免费设计模板_在线搞定设计印刷。
         - title: 笔格设计
           url: https://bigesj.com
-          logo: 笔格设计.png
+          logo: bigesj.png
           description: 一款一站式、多场景、智能化的在线图片编辑平台。
         - title: 爱设计
           url: https://www.isheji.com
-          logo: 爱设计.png
+          logo: isheji.png
           description: 爱设计,设计素材,在线图片制作,平面设计网站,在线设计,设计海报。
         - title: 易企秀
           url: https://www.eqxiu.com
-          logo: 易企秀.png
+          logo: eqxiu.png
           description: 免费H5模板_AI在线设计_海报_视频_数字人_企微私域营销。
         - title: 标智客
           url: https://www.logomaker.com.cn
-          logo: 标智客.png
+          logo: logomaker.png
           description: 不仅是智能LOGO设计。
         - title: 标小智
           url: https://www.logosc.cn
-          logo: 标小智.png
+          logo: logosc.png
           description: 智能LOGO设计生成器。
         - title: 可画
           url: https://www.canva.cn
-          logo: 可画.png
+          logo: canva.png
           description: 免费的线上平面设计工具。
     - term: 图片素材
       links:
@@ -660,6 +656,28 @@
           url: https://github.com/alexpate/awesome-design-systems
           logo: awesome_design_systems.png
           description:  A collection of awesome design systems.
+        - title: Material Design
+          url: https://material.io/guidelines/
+          logo: Material_Design.png
+          description: Introduction - Material Design.
+        - title: Human Interface Guidelines
+          url: https://developer.apple.com/ios/human-interface-guidelines
+          logo: human_interface_guidelines.png
+          description: Human Interface Guidelines iOS.
+        - title: Photoshop Etiquette
+          url: http://viggoz.com/photoshopetiquette/
+          logo: photoshopetiquette.png
+          description: PS礼仪-WEB设计指南。
+    - term: 文件处理
+      links:
+        - title: 稿定设计
+          url: https://www.aconvert.com/cn/image/
+          logo: aconvert.png
+          description: Design Guidelines &mdash; The way products are built.
+        - title: Awesome design systems
+          url: https://github.com/alexpate/awesome-design-systems
+          logo: awesome_design_systems.png
+          description: A collection of awesome design systems.
         - title: Material Design
           url: https://material.io/guidelines/
           logo: Material_Design.png
@@ -698,45 +716,49 @@
       links:
         - title: IT之家
           url: https://soft.ithome.com/
-          logo: IT之家.png
+          logo: ithome.png
           description: 软件之家。
         - title: 少数派
           url: https://sspai.com/
-          logo: 少数派.png
+          logo: sspai1.png
           description: 高效工作、品质生活。
         - title: 小众软件
           url: https://www.appinn.com/
-          logo: 小众软件.png
+          logo: appinn1.png
           description: 分享免费、小巧、实用、有趣、绿色的软件。
         - title: 反斗软件
           url: https://www.apprcn.com/
-          logo: 反斗软件.png
+          logo: apprcn.png
           description: 关注个人软件和绿色软件。
         - title: 果核剥壳
           url: https://www.ghxi.com/
-          logo: 果核剥壳.png
+          logo: ghxi.png
           description: 互联网的净土。
         - title: 异次元软件
           url: https://www.iplaysoft.com/
-          logo: 异次元软件.png
+          logo: iplaysoft.png
           description: 异次元软件世界 - 软件改变生活。
         - title: 吾爱破解
           url: https://www.52pojie.cn/forum-2-1.html
-          logo: 吾爱破解.png
-          description: 注册机,注册码,内存补丁,破解版,绿色版,汉化版,工具。
+          logo: 52pojie.png
+          description: 注册机,注册码,内存补丁,破解版,绿色版,汉化版,工具
+        - title: 往前方资源网
+          url: https://qianfangzy.com
+          logo: qianfangzy.png
+          description: 你每天想要的这里都有 每天看一看总有新东西
     - term: 科技博客
       links:
         - title: 不死鸟
           url: https://iui.su/
-          logo: 不死鸟.png
+          logo: iui.png
           description: 分享为王官网。
         - title: 阮一峰的网络日志
           url: http://www.ruanyifeng.com/blog/
-          logo: 阮一峰.png
+          logo: ruanyifeng.png
           description: 阮一峰，科技爱好者周刊。
         - title: 科技爱好者周刊
           url: https://github.com/ruanyf/weekly/issues
-          logo: 科技爱好者周刊.png
+          logo: ruanyf.png
           description: 记录每周值得分享的科技内容
         - title: ABABTOOLS
           url: https://ababtools.com/
@@ -744,33 +766,33 @@
           description: 一个集合了各种好玩又实用的宝藏之地。
         - title: 书栈网
           url: https://www.bookstack.cn/
-          logo: 书栈网.jpg
+          logo: bookstack.jpg
           description: IT 互联网开源编程书籍免费阅读与下载
     - term: 扩展插件
       links:
         - title: CRX搜搜
           url: https://www.crxsoso.com/
-          logo: crx搜搜.png
+          logo: crxsoso.png
           description: 一个牛X的扩展和应用商店
         - title: 极简插件
           url: https://chrome.zzzmh.cn/
-          logo: 极简插件.png
+          logo: zzzmh.png
           description:  Chrome浏览器扩展插件商店的搬运工。
         - title: 搜脚本加速站
           url: https://soujiaoben.org/#/pages/list/list
-          logo: 搜脚本.png
+          logo: soujiaoben.png
           description: 索全网脚本并提供Greasy Fork、ScriptCat、OpenUserJS、GitHub-gist等平台的加速访问服务
         - title: GreasyFork镜像
           url: https://gf.qytechs.cn/zh-CN
-          logo: greasyFork镜像.png
+          logo: qytechs.png
           description: 一个专为用户脚本打造的网站.
         - title: 脚本猫Scriptcat
           url: https://scriptcat.org/zh-CN
-          logo: 脚本猫.png
+          logo: scriptcat.png
           description: 发现和分享优质用户脚本，让浏览体验更精彩。
         - title: 篡改猴Tampermonkey
           url: https://www.tampermonkey.net/index.php?locale=zh
-          logo: 篡改猴.png
+          logo: tampermonkey.png
           description: 最流行的浏览器扩展之一。
     - term: 视频教程
       links:
