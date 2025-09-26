@@ -52,16 +52,6 @@ jobs:
         run: |
           hugo --config config.toml --baseURL https://xiaoanso.github.io
 
-      # 部署到 GitHub Pages
-      - name: Deploy Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
-          force_orphan: true
-          full_commit_message: ${{ github.event.head_commit.message }}
-
       # 设置 Node.js 环境用于网站可用性检查
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -76,3 +66,13 @@ jobs:
       # 检查网站可用性
       - name: Check site availability
         run: node siteChecker.js
+
+      # 部署到 GitHub Pages
+      - name: Deploy Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
+          full_commit_message: ${{ github.event.head_commit.message }}
