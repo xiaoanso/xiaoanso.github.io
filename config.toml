@@ -31,8 +31,8 @@ publishDir            = "public"				# 站点静态文件保存目录
 [params]
     author        = "xiaoan"
     description   = "小安驿站 网站搜索导航 | 专注分享好用的软件、网站、代码、教程，希望帮助到你 "
-    upload        = "https://www.yuque.com/forms/share/1a1fee15-f7a9-4ee6-9dd4-b0ba9fef1871"      # 左侧导航栏的"网站提交"
-    about         = "https://github.com/shenweiyan/Knowledge-Garden/discussions/10"	          # 左侧导航栏的"关于导航"页面(./about)
+    upload        = "https://mp.weixin.qq.com/s/mL9VGXGOz0bSgGmaE2ZUgA"      # 左侧导航栏的"网站提交"
+    about         = "https://mp.weixin.qq.com/s/mL9VGXGOz0bSgGmaE2ZUgA"	          # 左侧导航栏的"关于导航"页面(./about)
     repository    = "https://github.com/xiaoanso/xiaoanso.github.io"
     connect       = "https://mp.weixin.qq.com/s/mL9VGXGOz0bSgGmaE2ZUgA"
     enablePreLoad = true					# 网站完全打开前预加载动画
@@ -67,4 +67,4 @@ publishDir            = "public"				# 站点静态文件保存目录
     unsafe = true
 
 [params.footer]
-    copyright = '本站内容源自互联网，如有内容侵犯了你的权益，请联系删除相关内容，联系邮箱：shen@weiyan.cc <br/>&copy; 2021 - {year} By [WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo) | [Bio IT 爱好者](https://github.com/bioitee/) | [粤ICP备16023717号](http://beian.miit.gov.cn/)<br/>'
+    copyright = '本站内容源自互联网，如有内容侵犯了你的权益，请联系删除相关内容，联系邮箱：shen@weiyan.cc <br/>&copy; 2021 - {year} By [WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo) | [软件分享 爱好者](https://github.com/xiaoanso/) | [粤ICP备16023717号](https://mp.weixin.qq.com/s/mL9VGXGOz0bSgGmaE2ZUgA/)<br/>'
