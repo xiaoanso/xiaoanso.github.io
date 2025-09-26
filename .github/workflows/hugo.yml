@@ -46,6 +46,20 @@ jobs:
           # cp -R exampleSite/* .
           # 修改 config.toml 中的主题路径
           # sed -i 's|theme = "WebStack-Hugo"|theme = "layouts"|' config.toml
+      # 设置 Node.js 环境用于网站可用性检查
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      # 安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 检查网站可用性
+      - name: Check site availability
+        run: node siteChecker.js
 
       # 构建站点
       - name: Build Site
@@ -62,17 +76,3 @@ jobs:
           force_orphan: true
           full_commit_message: ${{ github.event.head_commit.message }}
 
-      # 设置 Node.js 环境用于网站可用性检查
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'npm'
-
-      # 安装项目依赖
-      - name: Install dependencies
-        run: npm install
-
-      # 检查网站可用性
-      - name: Check site availability
-        run: node siteChecker.js
