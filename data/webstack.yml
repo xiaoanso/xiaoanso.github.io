@@ -743,6 +743,10 @@
           description: 你每天想要的这里都有 每天看一看总有新东西
     - term: 科技博客
       links:
+        - title: LINUNX DO
+          url: https://linux.do/
+          logo: linux.do.png
+          description: 新的理想型社区。
         - title: 不死鸟
           url: https://iui.su/
           logo: iui.png

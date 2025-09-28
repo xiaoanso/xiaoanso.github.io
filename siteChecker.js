@@ -140,7 +140,7 @@ async function checkSitesAvailability(sites) {
 
     // 将结果保存到项目根目录
     fs.writeFileSync(outputPath, JSON.stringify(result, null, 2));
-    console.log('\n结果已保存到 siteCheckResult.json');
+    console.log('\n结果已保存到 ',outputPath);
 }
 
 // 读取网站列表并执行检查

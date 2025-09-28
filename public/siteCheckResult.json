@@ -1,0 +1,136 @@
+{
+  "timestamp": "2025-09-28T03:40:01.811Z",
+  "summary": {
+    "total": 182,
+    "available": 157,
+    "unavailable": 16,
+    "unknown": 9
+  },
+  "unavailableSites": [
+    {
+      "title": "知乎",
+      "url": "https://www.zhihu.com",
+      "status": "Request failed with status code 405"
+    },
+    {
+      "title": "关注我们",
+      "url": "https://www.xiaoanso.cn",
+      "status": "getaddrinfo ENOTFOUND www.xiaoanso.cn"
+    },
+    {
+      "title": "百度贴吧",
+      "url": "https://tieba.baidu.com",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "easyicon",
+      "url": "http://www.easyicon.net",
+      "status": "getaddrinfo ENOTFOUND www.easyicon.net"
+    },
+    {
+      "title": "Simpleline Icons",
+      "url": "https://www.namecheap.com",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "Instant Logo Search",
+      "url": "https://www.namecheap.com/visual/font-generator",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "Medialoot",
+      "url": "https://medialoot.com",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "素材搜索",
+      "url": "http://so.ui001.com",
+      "status": "Request failed with status code 400"
+    },
+    {
+      "title": "PS 饭团网",
+      "url": "http://psefan.com",
+      "status": "connect ENETUNREACH 163.197.215.22:80"
+    },
+    {
+      "title": "字体传奇网",
+      "url": "https://ziticq.com",
+      "status": "SSL证书不匹配"
+    },
+    {
+      "title": "私藏字体",
+      "url": "http://sicangziti.com",
+      "status": "检测超时"
+    },
+    {
+      "title": "photoshop",
+      "url": "https://www.adobe.com/cn/products/photoshop.html",
+      "status": "检测超时"
+    },
+    {
+      "title": "Illustrator",
+      "url": "https://www.adobe.com/cn/products/illustrator",
+      "status": "检测超时"
+    },
+    {
+      "title": "indesign",
+      "url": "http://www.adobe.com",
+      "status": "检测超时"
+    },
+    {
+      "title": "Blender",
+      "url": "https://www.blender.org",
+      "status": "检测超时"
+    },
+    {
+      "title": "Adobe XD",
+      "url": "http://www.adobe.com/products/xd.html",
+      "status": "检测超时"
+    },
+    {
+      "title": "Muse CC",
+      "url": "https://creative.adobe.com/zh-cn/products/download/muse",
+      "status": "检测超时"
+    },
+    {
+      "title": "gradients",
+      "url": "http://gradients.io",
+      "status": "Request failed with status code 429"
+    },
+    {
+      "title": "vanschneider",
+      "url": "http://www.vanschneider.com/colors",
+      "status": "Request failed with status code 405"
+    },
+    {
+      "title": "screen sizes",
+      "url": "http://screensiz.es",
+      "status": "检测超时"
+    },
+    {
+      "title": "可画",
+      "url": "https://www.canva.cn",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "Photoshop Etiquette",
+      "url": "http://viggoz.com/photoshopetiquette",
+      "status": "Request failed with status code 404"
+    },
+    {
+      "title": "Photoshop Etiquette",
+      "url": "http://viggoz.com/photoshopetiquette",
+      "status": "Request failed with status code 404"
+    },
+    {
+      "title": "LINUNX DO",
+      "url": "https://linux.do",
+      "status": "Request failed with status code 403"
+    },
+    {
+      "title": "阮一峰的网络日志",
+      "url": "http://www.ruanyifeng.com/blog",
+      "status": "Request failed with status code 403"
+    }
+  ]
+}
