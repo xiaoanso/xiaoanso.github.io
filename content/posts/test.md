@@ -1,8 +1,9 @@
 ---
 title: "Test"
 date: 2025-09-20T15:16:10+08:00
-draft: true
+draft: false
 toc: true
+layout: blog
 ---
 
 >微信公众号排版工具。问题或建议，请公众号留言。**[程序员翻身](#jump_8)**

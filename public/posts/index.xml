@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 小安驿站 网站搜索导航</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Sep 2025 15:16:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Sep 2025 15:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:64341/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的博客文章</title>
+      <link>http://localhost:64341/posts/my-blog-post/</link>
+      <pubDate>Mon, 29 Sep 2025 15:00:00 +0800</pubDate>
+      <guid>http://localhost:64341/posts/my-blog-post/</guid>
+      <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;&#xA;&lt;p&gt;这是我的第一篇博客文章。&lt;/p&gt;&#xA;&lt;h2 id=&#34;主要内容&#34;&gt;主要内容&lt;/h2&gt;&#xA;&lt;p&gt;在这里写你的博客内容&amp;hellip;&lt;/p&gt;&#xA;&lt;h3 id=&#34;子章节&#34;&gt;子章节&lt;/h3&gt;&#xA;&lt;p&gt;更多详细内容&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;&#xA;&lt;p&gt;总结你的文章内容。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Test</title>
       <link>http://localhost:64341/posts/test/</link>
