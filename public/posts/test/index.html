@@ -477,9 +477,11 @@
                                     <ul class="list-unstyled ml-3">
                                         
                                         <li class="subcategory-item">
-                                            <a href="/posts/datascience">数据科学</a>
                                             
-                                            <ul class="list-unstyled ml-3">
+                                            <span class="category-toggle" data-category="数据科学">数据科学 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            
+                                            
+                                            <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
                                                 
                                                 <li class="sub-subcategory-item">
                                                     <a href="/posts/datascience/analysis">数据分析</a>
@@ -494,9 +496,11 @@
                                         </li>
                                         
                                         <li class="subcategory-item">
-                                            <a href="/about">坚持1</a>
                                             
-                                            <ul class="list-unstyled ml-3">
+                                            <span class="category-toggle" data-category="坚持1">坚持1 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            
+                                            
+                                            <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
                                                 
                                                 <li class="sub-subcategory-item">
                                                     <a href="/about/sub1">子分类1</a>
@@ -518,9 +522,11 @@
                                     <ul class="list-unstyled ml-3">
                                         
                                         <li class="subcategory-item">
-                                            <a href="/posts/test">坚持2</a>
                                             
-                                            <ul class="list-unstyled ml-3">
+                                            <span class="category-toggle" data-category="坚持2">坚持2 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            
+                                            
+                                            <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
                                                 
                                                 <li class="sub-subcategory-item">
                                                     <a href="/posts/test/tech">技术分享</a>
@@ -535,9 +541,11 @@
                                         </li>
                                         
                                         <li class="subcategory-item">
-                                            <a href="/about">坚持13</a>
                                             
-                                            <ul class="list-unstyled ml-3">
+                                            <span class="category-toggle" data-category="坚持13">坚持13 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            
+                                            
+                                            <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
                                                 
                                                 <li class="sub-subcategory-item">
                                                     <a href="/about/subA">子分类A</a>
@@ -955,6 +963,26 @@ $$</p>
             margin-left: -1em;
         }
         
+        .category-toggle {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-toggle:hover {
+            color: #007bff;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .toggle-icon.rotated {
+            transform: rotate(90deg);
+        }
+        
         .content {
             font-size: 14px;
         }
@@ -1078,6 +1106,54 @@ $$</p>
             const searchSuggestions = document.getElementById('search-suggestions');
             const searchHistoryContainer = document.getElementById('search-history');
             const clearHistoryBtn = document.getElementById('clear-search-history');
+            
+            
+            const categoryToggles = document.querySelectorAll('.category-toggle');
+            
+            
+            function restoreCategoryStates() {
+                const categoryStates = JSON.parse(localStorage.getItem('categoryStates') || '{}');
+                
+                categoryToggles.forEach(toggle => {
+                    const categoryName = toggle.getAttribute('data-category');
+                    const subList = toggle.parentElement.querySelector('.subcategory-list');
+                    const icon = toggle.querySelector('.toggle-icon');
+                    
+                    if (subList && categoryStates[categoryName]) {
+                        subList.style.display = 'block';
+                        icon.classList.add('rotated');
+                    }
+                });
+            }
+            
+            
+            function saveCategoryState(categoryName, isExpanded) {
+                const categoryStates = JSON.parse(localStorage.getItem('categoryStates') || '{}');
+                categoryStates[categoryName] = isExpanded;
+                localStorage.setItem('categoryStates', JSON.stringify(categoryStates));
+            }
+            
+            
+            categoryToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const categoryName = this.getAttribute('data-category');
+                    const subList = this.parentElement.querySelector('.subcategory-list');
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    if (subList.style.display === 'none' || subList.style.display === '') {
+                        subList.style.display = 'block';
+                        icon.classList.add('rotated');
+                        saveCategoryState(categoryName, true);
+                    } else {
+                        subList.style.display = 'none';
+                        icon.classList.remove('rotated');
+                        saveCategoryState(categoryName, false);
+                    }
+                });
+            });
+            
+            
+            restoreCategoryStates();
             
             
             let searchHistory = JSON.parse(localStorage.getItem('blogSearchHistory') || '[]');

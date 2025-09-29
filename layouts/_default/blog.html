@@ -43,9 +43,13 @@
                                     <ul class="list-unstyled ml-3">
                                         {{ range .list }}
                                         <li class="subcategory-item">
+                                            {{ if .url }}
                                             <a href="{{ .url }}">{{ .name }}</a>
+                                            {{ else }}
+                                            <span class="category-toggle" data-category="{{ .name }}">{{ .name }} <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            {{ end }}
                                             {{ if .sublist }}
-                                            <ul class="list-unstyled ml-3">
+                                            <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
                                                 {{ range .sublist }}
                                                 <li class="sub-subcategory-item">
                                                     <a href="{{ .url }}">{{ .name }}</a>
@@ -149,6 +153,26 @@
             display: inline-block;
             width: 1em;
             margin-left: -1em;
+        }
+        
+        .category-toggle {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .category-toggle:hover {
+            color: #007bff;
+        }
+        
+        .toggle-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .toggle-icon.rotated {
+            transform: rotate(90deg);
         }
         
         .content {
@@ -274,6 +298,54 @@
             const searchSuggestions = document.getElementById('search-suggestions');
             const searchHistoryContainer = document.getElementById('search-history');
             const clearHistoryBtn = document.getElementById('clear-search-history');
+            
+            // 分类菜单展开/收起功能
+            const categoryToggles = document.querySelectorAll('.category-toggle');
+            
+            // 从localStorage恢复分类展开状态
+            function restoreCategoryStates() {
+                const categoryStates = JSON.parse(localStorage.getItem('categoryStates') || '{}');
+                
+                categoryToggles.forEach(toggle => {
+                    const categoryName = toggle.getAttribute('data-category');
+                    const subList = toggle.parentElement.querySelector('.subcategory-list');
+                    const icon = toggle.querySelector('.toggle-icon');
+                    
+                    if (subList && categoryStates[categoryName]) {
+                        subList.style.display = 'block';
+                        icon.classList.add('rotated');
+                    }
+                });
+            }
+            
+            // 保存分类展开状态到localStorage
+            function saveCategoryState(categoryName, isExpanded) {
+                const categoryStates = JSON.parse(localStorage.getItem('categoryStates') || '{}');
+                categoryStates[categoryName] = isExpanded;
+                localStorage.setItem('categoryStates', JSON.stringify(categoryStates));
+            }
+            
+            // 为每个分类切换器添加事件监听器
+            categoryToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const categoryName = this.getAttribute('data-category');
+                    const subList = this.parentElement.querySelector('.subcategory-list');
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    if (subList.style.display === 'none' || subList.style.display === '') {
+                        subList.style.display = 'block';
+                        icon.classList.add('rotated');
+                        saveCategoryState(categoryName, true);
+                    } else {
+                        subList.style.display = 'none';
+                        icon.classList.remove('rotated');
+                        saveCategoryState(categoryName, false);
+                    }
+                });
+            });
+            
+            // 恢复分类状态
+            restoreCategoryStates();
             
             // 搜索历史数组
             let searchHistory = JSON.parse(localStorage.getItem('blogSearchHistory') || '[]');
