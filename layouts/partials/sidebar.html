@@ -148,6 +148,20 @@
             </div>
         </div>
         
+        <style>
+            /* 二级菜单选中状态高亮样式 */
+            .sidebar-item ul li.active > a {
+                color: #f1404b !important;
+                font-weight: bold;
+            }
+            
+            /* 夜间模式下的选中状态样式 */
+            .io-black-mode .sidebar-item ul li.active > a {
+                color: white !important;
+                font-weight: bold;
+            }
+        </style>
+        
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // 确保jQuery已经加载
