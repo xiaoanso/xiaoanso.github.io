@@ -93,7 +93,7 @@
                             <ul>
                                 {{ range .Site.Data.webstack }}
                                     {{ if .list }}
-                                    <li class="sidebar-item">
+                                    <li class="sidebar-item" data-taxonomy="{{ .taxonomy }}">
                                         <a href="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}" class="smooth change-href" data-change="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}">    
                                             <i class="{{ .icon }} icon-fw icon-lg mr-2"></i>
                                             <span>{{ .taxonomy }}</span>
@@ -101,7 +101,7 @@
                                         </a>
                                         <ul>
                                             {{ range .list }}
-                                            <li><a href="#{{ md5 .term }}" class="smooth"><span>{{ .term }}</span></a></li>
+                                            <li data-term="{{ .term }}"><a href="#{{ md5 .term }}" class="smooth"><span>{{ .term }}</span></a></li>
                                             {{ end }}
                                         </ul>
                                     </li> 
@@ -147,3 +147,122 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 确保jQuery已经加载
+                if (typeof jQuery === 'undefined') {
+                    console.error('jQuery is not loaded');
+                    return;
+                }
+                
+                // 使用jQuery来处理菜单状态
+                (function($) {
+                    // 保存菜单展开状态的键名
+                    const menuStateKey = 'sidebar-menu-state';
+                    const submenuStateKey = 'sidebar-submenu-state';
+                    
+                    // 页面加载时恢复菜单状态
+                    const savedState = localStorage.getItem(menuStateKey);
+                    if (savedState) {
+                        const state = JSON.parse(savedState);
+                        Object.keys(state).forEach(taxonomy => {
+                            if (state[taxonomy]) {
+                                // 展开对应菜单
+                                const menuItem = $(`.sidebar-item[data-taxonomy="${taxonomy}"]`);
+                                if (menuItem.length > 0) {
+                                    // 检查菜单是否已经展开
+                                    if (!menuItem.hasClass('sidebar-show')) {
+                                        const link = menuItem.find('a').first();
+                                        if (link.length > 0) {
+                                            link.click();
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // 页面加载时恢复二级菜单选中状态
+                    const savedSubState = localStorage.getItem(submenuStateKey);
+                    if (savedSubState) {
+                        const state = JSON.parse(savedSubState);
+                        // 为选中的二级菜单项添加选中样式
+                        Object.keys(state).forEach(taxonomy => {
+                            const term = state[taxonomy];
+                            if (term) {
+                                const subItem = $(`.sidebar-item[data-taxonomy="${taxonomy}"] li[data-term="${term}"]`);
+                                if (subItem.length > 0) {
+                                    subItem.addClass('active');
+                                }
+                            }
+                        });
+                    }
+                    
+                    // 监听一级菜单点击事件
+                    $('.sidebar-menu-inner > ul > .sidebar-item').each(function() {
+                        const item = $(this);
+                        const link = item.find('a').first();
+                        const taxonomy = item.data('taxonomy');
+                        
+                        if (!link.length || !taxonomy) return;
+                        
+                        link.on('click', function(e) {
+                            // 等待现有逻辑执行完成后再保存状态
+                            setTimeout(() => {
+                                // 检查菜单是否展开
+                                const isShowing = item.hasClass('sidebar-show');
+                                // 保存状态到 localStorage
+                                saveMenuState(taxonomy, isShowing);
+                            }, 100); // 增加延迟确保动画完成
+                        });
+                    });
+                    
+                    // 监听二级菜单点击事件
+                    $('.sidebar-menu-inner ul li').each(function() {
+                        const item = $(this);
+                        const link = item.find('a').first();
+                        const term = item.data('term');
+                        
+                        if (!link.length || !term) return;
+                        
+                        // 获取父级菜单的分类名称
+                        const parentItem = item.closest('.sidebar-item');
+                        const taxonomy = parentItem.data('taxonomy');
+                        
+                        if (!taxonomy) return;
+                        
+                        link.on('click', function(e) {
+                            // 移除同级菜单项的选中状态
+                            item.siblings('li').removeClass('active');
+                            // 为当前项添加选中状态
+                            item.addClass('active');
+                            // 保存状态到 localStorage
+                            saveSubmenuState(taxonomy, term);
+                        });
+                    });
+                    
+                    // 保存一级菜单状态到 localStorage
+                    function saveMenuState(taxonomy, isExpanded) {
+                        let state = {};
+                        const savedState = localStorage.getItem(menuStateKey);
+                        if (savedState) {
+                            state = JSON.parse(savedState);
+                        }
+                        state[taxonomy] = isExpanded;
+                        localStorage.setItem(menuStateKey, JSON.stringify(state));
+                    }
+                    
+                    // 保存二级菜单状态到 localStorage
+                    function saveSubmenuState(taxonomy, term) {
+                        let state = {};
+                        const savedState = localStorage.getItem(submenuStateKey);
+                        if (savedState) {
+                            state = JSON.parse(savedState);
+                        }
+                        state[taxonomy] = term;
+                        localStorage.setItem(submenuStateKey, JSON.stringify(state));
+                    }
+                })(jQuery);
+            });
+        </script>
