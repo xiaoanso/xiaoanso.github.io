@@ -1,0 +1,312 @@
+{{ if $.Site.Params.nightMode }}
+<body class="io-black-mode">
+{{ else }}
+<body class="io-grey-mode">
+{{ end }}
+    {{ if $.Site.Params.enablePreLoad }}
+    <div id="loading">
+        <style>
+            .loader {
+                width: 250px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: helvetica, arial, sans-serif;
+                font-weight: 900;
+                color: #f1404b;
+                letter-spacing: 0.2em
+            }
+
+            .loader::before,
+            .loader::after {
+                content: "";
+                display: block;
+                width: 15px;
+                height: 15px;
+                background: #f1404b;
+                position: absolute;
+                animation: load .7s infinite alternate ease-in-out
+            }
+
+            .loader::before {
+                top: 0
+            }
+
+            .loader::after {
+                bottom: 0
+            }
+
+            @keyframes load {
+                0% {
+                    left: 0;
+                    height: 30px;
+                    width: 15px
+                }
+
+                50% {
+                    height: 8px;
+                    width: 40px
+                }
+
+                100% {
+                    left: 235px;
+                    height: 30px;
+                    width: 15px
+                }
+            }
+        </style>
+        <div class="loader">{{ $.Site.Params.textPreLoad }}</div>
+    </div>
+    {{ end }}
+    <div class="page-container">
+	{{ if $.Site.Params.expandSidebar }}
+	<div id="sidebar" class="sticky sidebar-nav fade animate-nav" style="width: 170px">
+        {{ else }}
+        <div id="sidebar" class="sticky sidebar-nav fade mini-sidebar" style="width: 60px;">
+	{{ end }}
+            <div class="modal-dialog h-100 sidebar-nav-inner">
+                <div class="sidebar-logo border-bottom border-color">
+                    <!-- logo -->
+                    <div class="logo overflow-hidden">
+                        <a href="" class="logo-expanded">
+                            <img src="{{ absURL $.Site.Params.images.logoExpandLight }}" height="40" class="logo-light"
+                                alt="{{ .Site.Title }}">
+                            <img src="{{ absURL $.Site.Params.images.logoExpandDark }}" height="40" class="logo-dark d-none"
+                                alt="{{ .Site.Title }}">
+                        </a>
+                        <a href="" class="logo-collapsed">
+                            <img src="{{ absURL $.Site.Params.images.logoCollapseLight }}" height="40" class="logo-light"
+                                alt="{{ .Site.Title }}">
+                            <img src="{{ absURL $.Site.Params.images.logoCollapseDark }}" height="40" class="logo-dark d-none"
+                                alt="{{ .Site.Title }}">
+                        </a>
+                    </div>
+                    <!-- logo end -->
+                </div>
+                <div class="sidebar-menu flex-fill">
+                    <div class="sidebar-scroll">
+                        <div class="sidebar-menu-inner">
+                            <ul>
+                                {{ range .Site.Data.webstack }}
+                                    {{ if .list }}
+                                    <li class="sidebar-item" data-taxonomy="{{ .taxonomy }}">
+                                        <a href="javascript:;" class="smooth change-href" data-change="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}">    
+                                            <i class="{{ .icon }} icon-fw icon-lg mr-2"></i>
+                                            <span>{{ .taxonomy }}</span>
+                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                        </a>
+                                        <ul>
+                                            {{ range .list }}
+                                            <li data-term="{{ .term }}"><a href="javascript:;" class="smooth" data-href="#{{ md5 .term }}"><span>{{ .term }}</span></a></li>
+                                            {{ end }}
+                                        </ul>
+                                    </li> 
+                                    {{ else }}
+                                    <li class="sidebar-item">
+                                        <a href="javascript:;" class="smooth" data-href="#{{ md5 .taxonomy }}">
+                                            <i class="{{ .icon }} fa-lg icon-fw icon-lg mr-2"></i>
+                                            <span>{{ .taxonomy }}</span>
+                                        </a>
+                                    </li>
+                                    {{ end }}
+                                {{ end }}
+                            </ul>           
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top py-2 border-color">
+                    <div class="flex-bottom">
+                        <ul>
+                            <li id="menu-item-237"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-237 sidebar-item">
+                                <a href="{{ $.Site.Params.upload }}" target="_blank">
+                                    <i class="fas fa-file-upload icon-fw icon-lg mr-2"></i>
+                                    <span>网站提交</span></a>
+                            </li>
+
+                            <li id="menu-item-212"
+                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212 sidebar-item">
+                                 <a href="javascript:;" class="smooth" data-href="#friendlink">
+                                     <i class="fab fa-staylinked icon-fw icon-lg mr-2"></i>
+                                     <span>友情链接</span>
+                                 </a>
+                            </li>
+
+                            <li id="menu-item-213"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-213 sidebar-item">
+                                <a target="_blank" rel="noopener" href="{{ $.Site.Params.about }}">
+                                    <i class="fa fa-info-circle icon-fw icon-lg mr-2"></i>
+                                    <span>关于导航</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            /* 二级菜单选中状态高亮样式 */
+            .sidebar-item ul li.active > a {
+                color: #f1404b !important;
+                font-weight: bold;
+            }
+            
+            /* 夜间模式下的选中状态样式 */
+            .io-black-mode .sidebar-item ul li.active > a {
+                color: white !important;
+                font-weight: bold;
+            }
+        </style>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 确保jQuery已经加载
+                if (typeof jQuery === 'undefined') {
+                    console.error('jQuery is not loaded');
+                    return;
+                }
+                
+                // 处理导航链接
+                function updateNavLinks() {
+                    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+                    const links = document.querySelectorAll('.sidebar-item a[data-href]');
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('data-href');
+                        if (isHomePage) {
+                            link.setAttribute('href', href);
+                        } else {
+                            link.setAttribute('href', '/' + href);
+                        }
+                    });
+                    
+                    // 处理一级菜单的change-href
+                    const changeLinks = document.querySelectorAll('.sidebar-item a[data-change]');
+                    changeLinks.forEach(link => {
+                        const changeHref = link.getAttribute('data-change');
+                        if (isHomePage) {
+                            link.setAttribute('href', changeHref);
+                        } else {
+                            link.setAttribute('href', '/' + changeHref);
+                        }
+                    });
+                }
+                
+                // 初始化导航链接
+                updateNavLinks();
+                
+                // 使用jQuery来处理菜单状态
+                (function($) {
+                    // 保存菜单展开状态的键名
+                    const menuStateKey = 'sidebar-menu-state';
+                    const submenuStateKey = 'sidebar-submenu-state';
+                    
+                    // 页面加载时恢复菜单状态
+                    const savedState = localStorage.getItem(menuStateKey);
+                    if (savedState) {
+                        const state = JSON.parse(savedState);
+                        Object.keys(state).forEach(taxonomy => {
+                            if (state[taxonomy]) {
+                                // 展开对应菜单
+                                const menuItem = $(`.sidebar-item[data-taxonomy="${taxonomy}"]`);
+                                if (menuItem.length > 0) {
+                                    // 检查菜单是否已经展开
+                                    if (!menuItem.hasClass('sidebar-show')) {
+                                        const link = menuItem.find('a').first();
+                                        if (link.length > 0) {
+                                            link.click();
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    
+                    // 页面加载时恢复二级菜单选中状态
+                    const savedSubState = localStorage.getItem(submenuStateKey);
+                    if (savedSubState) {
+                        const state = JSON.parse(savedSubState);
+                        // 为选中的二级菜单项添加选中样式
+                        Object.keys(state).forEach(taxonomy => {
+                            const term = state[taxonomy];
+                            if (term) {
+                                const subItem = $(`.sidebar-item[data-taxonomy="${taxonomy}"] li[data-term="${term}"]`);
+                                if (subItem.length > 0) {
+                                    subItem.addClass('active');
+                                }
+                            }
+                        });
+                    }
+                    
+                    // 监听一级菜单点击事件
+                    $('.sidebar-menu-inner > ul > .sidebar-item').each(function() {
+                        const item = $(this);
+                        const link = item.find('a').first();
+                        const taxonomy = item.data('taxonomy');
+                        
+                        if (!link.length || !taxonomy) return;
+                        
+                        link.on('click', function(e) {
+                            // 等待现有逻辑执行完成后再保存状态
+                            setTimeout(() => {
+                                // 检查菜单是否展开
+                                const isShowing = item.hasClass('sidebar-show');
+                                // 保存状态到 localStorage
+                                saveMenuState(taxonomy, isShowing);
+                            }, 100); // 增加延迟确保动画完成
+                        });
+                    });
+                    
+                    // 监听二级菜单点击事件
+                    $('.sidebar-menu-inner ul li').each(function() {
+                        const item = $(this);
+                        const link = item.find('a').first();
+                        const term = item.data('term');
+                        
+                        if (!link.length || !term) return;
+                        
+                        // 获取父级菜单的分类名称
+                        const parentItem = item.closest('.sidebar-item');
+                        const taxonomy = parentItem.data('taxonomy');
+                        
+                        if (!taxonomy) return;
+                        
+                        link.on('click', function(e) {
+                            // 移除同级菜单项的选中状态
+                            item.siblings('li').removeClass('active');
+                            // 为当前项添加选中状态
+                            item.addClass('active');
+                            // 保存状态到 localStorage
+                            saveSubmenuState(taxonomy, term);
+                        });
+                    });
+                    
+                    // 保存一级菜单状态到 localStorage
+                    function saveMenuState(taxonomy, isExpanded) {
+                        let state = {};
+                        const savedState = localStorage.getItem(menuStateKey);
+                        if (savedState) {
+                            state = JSON.parse(savedState);
+                        }
+                        state[taxonomy] = isExpanded;
+                        localStorage.setItem(menuStateKey, JSON.stringify(state));
+                    }
+                    
+                    // 保存二级菜单状态到 localStorage
+                    function saveSubmenuState(taxonomy, term) {
+                        let state = {};
+                        const savedState = localStorage.getItem(submenuStateKey);
+                        if (savedState) {
+                            state = JSON.parse(savedState);
+                        }
+                        state[taxonomy] = term;
+                        localStorage.setItem(submenuStateKey, JSON.stringify(state));
+                    }
+                })(jQuery);
+            });
+        </script>
+</```
