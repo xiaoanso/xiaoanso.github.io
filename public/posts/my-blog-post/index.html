@@ -478,7 +478,12 @@
                                         
                                         <li class="subcategory-item">
                                             
-                                            <span class="category-toggle" data-category="数据科学">数据科学 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            <span class="category-toggle" data-category="数据科学">
+                                                
+                                                <i class="fas fa-chart-bar"></i>
+                                                
+                                                数据科学 <i class="fas fa-chevron-right toggle-icon"></i>
+                                            </span>
                                             
                                             
                                             <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
@@ -497,7 +502,12 @@
                                         
                                         <li class="subcategory-item">
                                             
-                                            <span class="category-toggle" data-category="坚持1">坚持1 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            <span class="category-toggle" data-category="坚持1">
+                                                
+                                                <i class="fas fa-heart"></i>
+                                                
+                                                坚持1 <i class="fas fa-chevron-right toggle-icon"></i>
+                                            </span>
                                             
                                             
                                             <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
@@ -523,7 +533,12 @@
                                         
                                         <li class="subcategory-item">
                                             
-                                            <span class="category-toggle" data-category="坚持2">坚持2 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            <span class="category-toggle" data-category="坚持2">
+                                                
+                                                <i class="fas fa-lightbulb"></i>
+                                                
+                                                坚持2 <i class="fas fa-chevron-right toggle-icon"></i>
+                                            </span>
                                             
                                             
                                             <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
@@ -542,7 +557,12 @@
                                         
                                         <li class="subcategory-item">
                                             
-                                            <span class="category-toggle" data-category="坚持13">坚持13 <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            <span class="category-toggle" data-category="坚持13">
+                                                
+                                                <i class="fas fa-book"></i>
+                                                
+                                                坚持13 <i class="fas fa-chevron-right toggle-icon"></i>
+                                            </span>
                                             
                                             
                                             <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
@@ -662,15 +682,16 @@
         }
         
         .blog-categories ul li {
-            margin: 8px 0;
+            margin: 8px 0px 8px 18px;
         }
         
-        .blog-categories ul li:before {
-            content: "•";
-            color: #f1404b;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+         
+        .subcategory-item:not(.has-children) {
+            list-style: none;
+        }
+        
+        .subcategory-item:not(.has-children)::before {
+            content: "";
         }
         
         .sub-subcategory-item:before {
@@ -685,7 +706,7 @@
             cursor: pointer;
             user-select: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
         }
         
@@ -695,6 +716,7 @@
         
         .toggle-icon {
             transition: transform 0.2s ease-in-out;
+            margin-left: auto;
         }
         
         .toggle-icon.rotated {
@@ -811,6 +833,13 @@
             border-color: #0056b3;
             box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
             outline: none;
+        }
+        
+         
+        .subcategory-item .category-toggle i {
+            width: 20px;
+            text-align: center;
+            margin-right: 8px;
         }
     </style>
     

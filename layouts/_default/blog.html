@@ -46,7 +46,12 @@
                                             {{ if .url }}
                                             <a href="{{ .url }}">{{ .name }}</a>
                                             {{ else }}
-                                            <span class="category-toggle" data-category="{{ .name }}">{{ .name }} <i class="fas fa-chevron-right toggle-icon"></i></span>
+                                            <span class="category-toggle" data-category="{{ .name }}">
+                                                {{ if .icon }}
+                                                <i class="{{ .icon }}"></i>
+                                                {{ end }}
+                                                {{ .name }} <i class="fas fa-chevron-right toggle-icon"></i>
+                                            </span>
                                             {{ end }}
                                             {{ if .sublist }}
                                             <ul class="list-unstyled ml-3 subcategory-list" style="display: none;">
@@ -136,15 +141,16 @@
         }
         
         .blog-categories ul li {
-            margin: 8px 0;
+            margin: 8px 0px 8px 18px;
         }
         
-        .blog-categories ul li:before {
-            content: "•";
-            color: #f1404b;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+        /* 移除二级菜单的小红点 */
+        .subcategory-item:not(.has-children) {
+            list-style: none;
+        }
+        
+        .subcategory-item:not(.has-children)::before {
+            content: "";
         }
         
         .sub-subcategory-item:before {
@@ -159,7 +165,7 @@
             cursor: pointer;
             user-select: none;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
         }
         
@@ -169,6 +175,7 @@
         
         .toggle-icon {
             transition: transform 0.2s ease-in-out;
+            margin-left: auto;
         }
         
         .toggle-icon.rotated {
@@ -285,6 +292,13 @@
             border-color: #0056b3;
             box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
             outline: none;
+        }
+        
+        /* 二级菜单图标样式 */
+        .subcategory-item .category-toggle i {
+            width: 20px;
+            text-align: center;
+            margin-right: 8px;
         }
     </style>
     

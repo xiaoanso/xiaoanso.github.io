@@ -2,12 +2,14 @@
   icon: fas fa-laptop-code
   list:
     - name: 数据科学
+      icon: fas fa-chart-bar
       sublist:
         - name: 数据分析
           url: "/posts/datascience/analysis"
         - name: 数据可视化
           url: "/posts/datascience/visualization"
     - name: 坚持1
+      icon: fas fa-heart
       sublist:
         - name: 子分类1
           url: "/about/sub1"
@@ -18,12 +20,14 @@
   icon: fas fa-coffee
   list:
     - name: 坚持2
+      icon: fas fa-lightbulb
       sublist:
         - name: 技术分享
           url: "/posts/test/tech"
         - name: 经验总结
           url: "/posts/test/experience"
     - name: 坚持13
+      icon: fas fa-book
       sublist:
         - name: 子分类A
           url: "/about/subA"
