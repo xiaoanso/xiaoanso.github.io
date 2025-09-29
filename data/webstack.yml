@@ -547,12 +547,12 @@
 - taxonomy: 媒体运营
   icon: fas fa-pencil-alt fa-lg
   list:
-    - term: 公众号
+    - term: 新媒体
       links:
         - title: 公众号平台
           url: https://mp.weixin.qq.com/
           logo: mp.weixin.png
-          description: 愿大家出走半生，归来仍是少年。
+          description: 再小的个体也有自己的品牌。
         - title: 公众号运营规范
           url: https://mp.weixin.qq.com/mp/opshowpage?action=newoplaw&token=2102862819&lang=zh_CN
           logo: mp.weixin.qq.png
@@ -741,6 +741,14 @@
           url: https://qianfangzy.com
           logo: qianfangzy.png
           description: 你每天想要的这里都有 每天看一看总有新东西
+        - title: 吾爱破解
+          url: https://hellogithub.com/
+          logo: hellogithub.png
+          description: 一个发现和分享有趣、入门级开源项目的平台
+        - title: 423Down
+          url: https://www.423down.com/
+          logo: 423down.png
+          description: 国内最良心的软件下载站
     - term: 科技博客
       links:
         - title: LINUNX DO
