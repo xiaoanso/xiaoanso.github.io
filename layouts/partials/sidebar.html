@@ -94,20 +94,20 @@
                                 {{ range .Site.Data.webstack }}
                                     {{ if .list }}
                                     <li class="sidebar-item" data-taxonomy="{{ .taxonomy }}">
-                                        <a href="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}" class="smooth change-href" data-change="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}">    
+                                        <a href="javascript:;" class="smooth change-href" data-change="#{{ range first 1 .list }}{{ md5 .term }}{{ end }}">    
                                             <i class="{{ .icon }} icon-fw icon-lg mr-2"></i>
                                             <span>{{ .taxonomy }}</span>
                                             <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
                                         </a>
                                         <ul>
                                             {{ range .list }}
-                                            <li data-term="{{ .term }}"><a href="#{{ md5 .term }}" class="smooth"><span>{{ .term }}</span></a></li>
+                                            <li data-term="{{ .term }}"><a href="javascript:;" class="smooth" data-href="#{{ md5 .term }}"><span>{{ .term }}</span></a></li>
                                             {{ end }}
                                         </ul>
                                     </li> 
                                     {{ else }}
                                     <li class="sidebar-item">
-                                        <a href="#{{ md5 .taxonomy }}" class="smooth">
+                                        <a href="javascript:;" class="smooth" data-href="#{{ md5 .taxonomy }}">
                                             <i class="{{ .icon }} fa-lg icon-fw icon-lg mr-2"></i>
                                             <span>{{ .taxonomy }}</span>
                                         </a>
@@ -128,9 +128,9 @@
                                     <span>网站提交</span></a>
                             </li>
 
-			    <li id="menu-item-212"
+                            <li id="menu-item-212"
                                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212 sidebar-item">
-                                 <a href="#friendlink" class="smooth">
+                                 <a href="javascript:;" class="smooth" data-href="#friendlink">
                                      <i class="fab fa-staylinked icon-fw icon-lg mr-2"></i>
                                      <span>友情链接</span>
                                  </a>
@@ -169,6 +169,35 @@
                     console.error('jQuery is not loaded');
                     return;
                 }
+                
+                // 处理导航链接
+                function updateNavLinks() {
+                    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+                    const links = document.querySelectorAll('.sidebar-item a[data-href]');
+                    
+                    links.forEach(link => {
+                        const href = link.getAttribute('data-href');
+                        if (isHomePage) {
+                            link.setAttribute('href', href);
+                        } else {
+                            link.setAttribute('href', '/' + href);
+                        }
+                    });
+                    
+                    // 处理一级菜单的change-href
+                    const changeLinks = document.querySelectorAll('.sidebar-item a[data-change]');
+                    changeLinks.forEach(link => {
+                        const changeHref = link.getAttribute('data-change');
+                        if (isHomePage) {
+                            link.setAttribute('href', changeHref);
+                        } else {
+                            link.setAttribute('href', '/' + changeHref);
+                        }
+                    });
+                }
+                
+                // 初始化导航链接
+                updateNavLinks();
                 
                 // 使用jQuery来处理菜单状态
                 (function($) {
@@ -280,3 +309,4 @@
                 })(jQuery);
             });
         </script>
+</```
