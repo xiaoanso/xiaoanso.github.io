@@ -1,15 +1,35 @@
-- taxonomy: 技术博客
+- taxonomy: 生物信息
   icon: fas fa-laptop-code
   list:
-    - name: 坚持1
-      url: "/posts/test"
+    - name: 数据科学
+      url: "/posts/datascience"
+      sublist:
+        - name: 数据分析
+          url: "/posts/datascience/analysis"
+        - name: 数据可视化
+          url: "/posts/datascience/visualization"
     - name: 坚持1
       url: "/about"
+      sublist:
+        - name: 子分类1
+          url: "/about/sub1"
+        - name: 子分类2
+          url: "/about/sub2"
 
-- taxonomy: 生活随笔
+- taxonomy: 专栏主题
   icon: fas fa-coffee
   list:
     - name: 坚持2
       url: "/posts/test"
+      sublist:
+        - name: 技术分享
+          url: "/posts/test/tech"
+        - name: 经验总结
+          url: "/posts/test/experience"
     - name: 坚持13
       url: "/about"
+      sublist:
+        - name: 子分类A
+          url: "/about/subA"
+        - name: 子分类B
+          url: "/about/subB"
