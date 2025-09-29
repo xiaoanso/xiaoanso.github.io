@@ -8,7 +8,7 @@ hasCJKLanguage        = true
 publishDir            = "public"				# 站点静态文件保存目录
 
 [outputs]
-  home = ["HTML", "RSS", "POSTS", "WEBSTACK"]
+  home = ["HTML", "RSS", "POSTS", "WEBSTACK", "SITECHECKER"]
 
 [outputFormats]
   [outputFormats.POSTS]
@@ -21,6 +21,10 @@ publishDir            = "public"				# 站点静态文件保存目录
     baseName = "webstack"
     isPlainText = true
 
+ [outputFormats.SITECHECKER]
+    mediaType = "application/json"
+    baseName = "siteCheckResult"
+    isPlainText = true
 
 [params]
     author        = "xiaoan"

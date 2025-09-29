@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const projectDir = path.join(__dirname,'./');
-const outputPath = projectDir+'public/siteCheckResult.json';
+const outputPath = projectDir+'layout/_default/siteCheckResult.json';
 const webstackPath = projectDir+'public/webstack.json';
 
 async function checkSitesAvailability(sites) {
