@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小安驿站 网站搜索导航</title>
+    <link>https://xiaoanso.github.io/</link>
+    <description>Recent content on 小安驿站 网站搜索导航</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Sep 2025 15:00:00 +0800</lastBuildDate>
+    <atom:link href="https://xiaoanso.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的博客文章</title>
+      <link>https://xiaoanso.github.io/posts/my-blog-post/</link>
+      <pubDate>Mon, 29 Sep 2025 15:00:00 +0800</pubDate>
+      <guid>https://xiaoanso.github.io/posts/my-blog-post/</guid>
+      <description>引言 这是我的第一篇博客文章。 主要内容 在这里写你的博客内容&amp;hellip; 子章节 更多详细内容&amp;hellip; 结论 总结你的文章内容。</description>
+    </item>
+    <item>
+      <title>Test</title>
+      <link>https://xiaoanso.github.io/posts/test/</link>
+      <pubDate>Sat, 20 Sep 2025 15:16:10 +0800</pubDate>
+      <guid>https://xiaoanso.github.io/posts/test/</guid>
+      <description>微信公众号排版工具。问题或建议，请公众号留言。程序员翻身 建议使用 Chrome 浏览器，体验最佳效果。 使用微信公众号编辑器有一个十分头疼的问题：粘贴出来的</description>
+    </item>
+    <item>
+      <title>关于网站</title>
+      <link>https://xiaoanso.github.io/about/</link>
+      <pubDate>Tue, 28 Jul 2020 19:27:08 +0800</pubDate>
+      <guid>https://xiaoanso.github.io/about/</guid>
+      <description>这是 Hugo 版 WebStack 主题 本项目是基于纯静态的网址导航网站 webstack.cc 制作的 Hugo 主题，其中部分代码参考了以下几个开源项目： https://github.com/liutongxu/liutongxu.github.io https://github.com/iplaycode/webstack-hugo 主题安装后，将 exampleSite 目录下的文件复制到 hugo 站</description>
+    </item>
+  </channel>
+</rss>
