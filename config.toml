@@ -8,7 +8,7 @@ hasCJKLanguage        = true
 publishDir            = "public"				# 站点静态文件保存目录
 
 [outputs]
-  home = ["HTML", "RSS", "POSTS", "WEBSTACK", "SITECHECKER"]
+  home = ["HTML", "RSS", "POSTS", "WEBSTACK", "SITECHECKRESULT"]
 
 [outputFormats]
   [outputFormats.POSTS]
@@ -21,7 +21,7 @@ publishDir            = "public"				# 站点静态文件保存目录
     baseName = "webstack"
     isPlainText = true
 
- [outputFormats.SITECHECKER]
+  [outputFormats.SITECHECKRESULT]
     mediaType = "application/json"
     baseName = "siteCheckResult"
     isPlainText = true

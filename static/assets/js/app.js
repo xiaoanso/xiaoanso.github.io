@@ -377,19 +377,19 @@
     });
     //菜单栏最小化
     $('#mini-button').on('click', function () {
-        trigger_lsm_mini(false);
+        trigger_lsm_mini(true);
 
     });
 
     function trigger_lsm_mini(isNoAnim) {
-        if ($('.header-mini-btn input[type="checkbox"]').prop("checked")) {
+        if (!$('.header-mini-btn input[type="checkbox"]').prop("checked")) {
             $('.sidebar-nav').removeClass('mini-sidebar');
             //221024: 调整左导航展开时,点击图标锚定定位失效
             //$('.sidebar-nav .change-href').attr('href','javascript:;');
             $('.sidebar-menu ul ul').css("display", "none");
             if (isNoAnim) {
                 $('.sidebar-nav').removeClass('animate-nav');
-                $('.sidebar-nav').width(220);
+                $('.sidebar-nav').width(170);
             } else {
                 $('.sidebar-nav').addClass('animate-nav');
                 $('.sidebar-nav').stop().animate({width: 170}, 200);
