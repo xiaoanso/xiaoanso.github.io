@@ -53,68 +53,68 @@
 
 <body class="io-grey-mode">
 
+
+<div id="loading">
+    <style>
+        .loader {
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: helvetica, arial, sans-serif;
+            font-weight: 900;
+            color: #f1404b;
+            letter-spacing: 0.2em
+        }
+
+        .loader::before,
+        .loader::after {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: #f1404b;
+            position: absolute;
+            animation: load .7s infinite alternate ease-in-out
+        }
+
+        .loader::before {
+            top: 0
+        }
+
+        .loader::after {
+            bottom: 0
+        }
+
+        @keyframes load {
+            0% {
+                left: 0;
+                height: 30px;
+                width: 15px
+            }
+
+            50% {
+                height: 8px;
+                width: 40px
+            }
+
+            100% {
+                left: 235px;
+                height: 30px;
+                width: 15px
+            }
+        }
+    </style>
+    <div class="loader">小安驿站 网站搜索导航</div>
+</div>
+
+<div class="page-container">
     
-    <div id="loading">
-        <style>
-            .loader {
-                width: 250px;
-                height: 50px;
-                line-height: 50px;
-                text-align: center;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-family: helvetica, arial, sans-serif;
-                font-weight: 900;
-                color: #f1404b;
-                letter-spacing: 0.2em
-            }
-
-            .loader::before,
-            .loader::after {
-                content: "";
-                display: block;
-                width: 15px;
-                height: 15px;
-                background: #f1404b;
-                position: absolute;
-                animation: load .7s infinite alternate ease-in-out
-            }
-
-            .loader::before {
-                top: 0
-            }
-
-            .loader::after {
-                bottom: 0
-            }
-
-            @keyframes load {
-                0% {
-                    left: 0;
-                    height: 30px;
-                    width: 15px
-                }
-
-                50% {
-                    height: 8px;
-                    width: 40px
-                }
-
-                100% {
-                    left: 235px;
-                    height: 30px;
-                    width: 15px
-                }
-            }
-        </style>
-        <div class="loader">小安驿站 网站搜索导航</div>
-    </div>
-    
-    <div class="page-container">
-	
-	<div id="sidebar" class="sticky sidebar-nav fade animate-nav" style="width: 170px">
+    <div id="sidebar" class="sticky sidebar-nav fade animate-nav" style="width: 170px">
         
             <div class="modal-dialog h-100 sidebar-nav-inner">
                 <div class="sidebar-logo border-bottom border-color">
@@ -122,15 +122,18 @@
                     <div class="logo overflow-hidden">
                         <a href="" class="logo-expanded">
                             <img src="http://localhost:64341/assets/images/bi-expand-dark.png" height="40" class="logo-light"
-                                alt="小安驿站 网站搜索导航">
-                            <img src="http://localhost:64341/assets/images/bi-expand-light.png" height="40" class="logo-dark d-none"
-                                alt="小安驿站 网站搜索导航">
+                                 alt="小安驿站 网站搜索导航">
+                            <img src="http://localhost:64341/assets/images/bi-expand-light.png" height="40"
+                                 class="logo-dark d-none"
+                                 alt="小安驿站 网站搜索导航">
                         </a>
                         <a href="" class="logo-collapsed">
-                            <img src="http://localhost:64341/assets/images/bi.png" height="40" class="logo-light"
-                                alt="小安驿站 网站搜索导航">
-                            <img src="http://localhost:64341/assets/images/bi.png" height="40" class="logo-dark d-none"
-                                alt="小安驿站 网站搜索导航">
+                            <img src="http://localhost:64341/assets/images/bi.png" height="40"
+                                 class="logo-light"
+                                 alt="小安驿站 网站搜索导航">
+                            <img src="http://localhost:64341/assets/images/bi.png" height="40"
+                                 class="logo-dark d-none"
+                                 alt="小安驿站 网站搜索导航">
                         </a>
                     </div>
                     
@@ -140,144 +143,187 @@
                         <div class="sidebar-menu-inner">
                             <ul>
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#366a7288b80ec8882b88467447296837" class="smooth">
-                                            <i class="far fa-star fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>常用推荐</span>
-                                        </a>
-                                    </li>
-                                    
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#89a839e0a347c0be73793d01e52c31ad" class="smooth change-href" data-change="#89a839e0a347c0be73793d01e52c31ad">    
-                                            <i class="fas fa-flask fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>科研办公</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#89a839e0a347c0be73793d01e52c31ad" class="smooth"><span>生物信息</span></a></li>
-                                            
-                                            <li><a href="#acd617ea241c9daf2f251963bc03c6e3" class="smooth"><span>云服务器</span></a></li>
-                                            
-                                            <li><a href="#e0aade1cd567f730e498e248bbd6acdf" class="smooth"><span>办公学习</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
+                                <li class="sidebar-item">
+                                    <a href="#366a7288b80ec8882b88467447296837" class="smooth" data-anchor="#366a7288b80ec8882b88467447296837">
+                                        <i class="far fa-star fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>常用推荐</span>
+                                    </a>
+                                </li>
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#a4d417d7850fde0cd00e4af576621a63" class="smooth change-href" data-change="#a4d417d7850fde0cd00e4af576621a63">    
-                                            <i class="fas fa-film fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>悠闲娱乐</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#a4d417d7850fde0cd00e4af576621a63" class="smooth"><span>影音视频</span></a></li>
-                                            
-                                            <li><a href="#e15122403d5aca361a6b63ddea292464" class="smooth"><span>游戏竞技</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#5e6e1089ffbc5d7819c0d0f1f7b31ebc" class="smooth change-href" data-change="#5e6e1089ffbc5d7819c0d0f1f7b31ebc">    
-                                            <i class="far fa-folder-open fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>素材资源</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#5e6e1089ffbc5d7819c0d0f1f7b31ebc" class="smooth"><span>网盘资源</span></a></li>
-                                            
-                                            <li><a href="#7866a35b09d466b9cf0295af54d30d53" class="smooth"><span>图标素材</span></a></li>
-                                            
-                                            <li><a href="#779477bcccdd4ecb1d852c8d4a67caca" class="smooth"><span>图标设计</span></a></li>
-                                            
-                                            <li><a href="#ff65f7f9721757bf11b0b0c95f1b9446" class="smooth"><span>平面素材</span></a></li>
-                                            
-                                            <li><a href="#722d3693fc0b9344bb46ee220beac1b6" class="smooth"><span>字体资源</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#4fbc8ba07df90bae306d8e3b83fc5a21" class="smooth change-href" data-change="#4fbc8ba07df90bae306d8e3b83fc5a21">    
-                                            <i class="fas fa-tools fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>开发设计</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#4fbc8ba07df90bae306d8e3b83fc5a21" class="smooth"><span>图形创意</span></a></li>
-                                            
-                                            <li><a href="#542c016a714d85715d206c8892fba01f" class="smooth"><span>界面设计</span></a></li>
-                                            
-                                            <li><a href="#31e51a60697ff3fb1d1c4934cce67921" class="smooth"><span>在线配色</span></a></li>
-                                            
-                                            <li><a href="#9c2232288caaa8ec40948cef6a786ac2" class="smooth"><span>在线工具</span></a></li>
-                                            
-                                            <li><a href="#13a0e1cc22ccc31b31242a6046230729" class="smooth"><span>谷歌插件</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
+                                <li class="sidebar-item">
+                                    <a href="#89a839e0a347c0be73793d01e52c31ad"
+                                       class="smooth change-href"
+                                       data-change="#89a839e0a347c0be73793d01e52c31ad"
+                                       data-anchor="#89a839e0a347c0be73793d01e52c31ad">
+                                        <i class="fas fa-flask fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>科研办公</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#89a839e0a347c0be73793d01e52c31ad" class="smooth"
+                                               data-anchor="#89a839e0a347c0be73793d01e52c31ad"><span>生物信息</span></a></li>
+                                        
+                                        <li><a href="#acd617ea241c9daf2f251963bc03c6e3" class="smooth"
+                                               data-anchor="#acd617ea241c9daf2f251963bc03c6e3"><span>云服务器</span></a></li>
+                                        
+                                        <li><a href="#e0aade1cd567f730e498e248bbd6acdf" class="smooth"
+                                               data-anchor="#e0aade1cd567f730e498e248bbd6acdf"><span>办公学习</span></a></li>
+                                        
+                                    </ul>
+                                </li>
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#ae6ab642180c1294680dbc6185bc490f" class="smooth change-href" data-change="#ae6ab642180c1294680dbc6185bc490f">    
-                                            <i class="fas fa-pencil-alt fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>媒体运营</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#ae6ab642180c1294680dbc6185bc490f" class="smooth"><span>新媒体</span></a></li>
-                                            
-                                            <li><a href="#4dc9cec737e43867b8330336c35a5e07" class="smooth"><span>排版工具</span></a></li>
-                                            
-                                            <li><a href="#fb239c01244735ea863c27ac88060593" class="smooth"><span>图片设计</span></a></li>
-                                            
-                                            <li><a href="#9f5b13dd1585dacdec3fd4fca7a9f578" class="smooth"><span>图片素材</span></a></li>
-                                            
-                                            <li><a href="#5a632ccb8dc3003658b13cca5ef7ce7e" class="smooth"><span>文件处理</span></a></li>
-                                            
-                                            <li><a href="#aec25b122d7aceb3dd3b64cf71858ed2" class="smooth"><span>视频教程</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
                                 
-                                    
-                                    <li class="sidebar-item">
-                                        <a href="#2bdd4344e8aaa366ed5d4f0f24cc9267" class="smooth change-href" data-change="#2bdd4344e8aaa366ed5d4f0f24cc9267">    
-                                            <i class="fas fa-chalkboard-teacher fa-lg icon-fw icon-lg mr-2"></i>
-                                            <span>科技资讯</span>
-                                            <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
-                                        </a>
-                                        <ul>
-                                            
-                                            <li><a href="#2bdd4344e8aaa366ed5d4f0f24cc9267" class="smooth"><span>软件站点</span></a></li>
-                                            
-                                            <li><a href="#a961471aed425b95b74727f2d3386b02" class="smooth"><span>科技博客</span></a></li>
-                                            
-                                            <li><a href="#44d6136af9d83068a3de505be1d30397" class="smooth"><span>扩展插件</span></a></li>
-                                            
-                                            <li><a href="#aec25b122d7aceb3dd3b64cf71858ed2" class="smooth"><span>视频教程</span></a></li>
-                                            
-                                        </ul>
-                                    </li> 
-                                    
                                 
-                            </ul>           
+                                <li class="sidebar-item">
+                                    <a href="#a4d417d7850fde0cd00e4af576621a63"
+                                       class="smooth change-href"
+                                       data-change="#a4d417d7850fde0cd00e4af576621a63"
+                                       data-anchor="#a4d417d7850fde0cd00e4af576621a63">
+                                        <i class="fas fa-film fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>悠闲娱乐</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#a4d417d7850fde0cd00e4af576621a63" class="smooth"
+                                               data-anchor="#a4d417d7850fde0cd00e4af576621a63"><span>影音视频</span></a></li>
+                                        
+                                        <li><a href="#e15122403d5aca361a6b63ddea292464" class="smooth"
+                                               data-anchor="#e15122403d5aca361a6b63ddea292464"><span>游戏竞技</span></a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                <li class="sidebar-item">
+                                    <a href="#5e6e1089ffbc5d7819c0d0f1f7b31ebc"
+                                       class="smooth change-href"
+                                       data-change="#5e6e1089ffbc5d7819c0d0f1f7b31ebc"
+                                       data-anchor="#5e6e1089ffbc5d7819c0d0f1f7b31ebc">
+                                        <i class="far fa-folder-open fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>素材资源</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#5e6e1089ffbc5d7819c0d0f1f7b31ebc" class="smooth"
+                                               data-anchor="#5e6e1089ffbc5d7819c0d0f1f7b31ebc"><span>网盘资源</span></a></li>
+                                        
+                                        <li><a href="#7866a35b09d466b9cf0295af54d30d53" class="smooth"
+                                               data-anchor="#7866a35b09d466b9cf0295af54d30d53"><span>图标素材</span></a></li>
+                                        
+                                        <li><a href="#779477bcccdd4ecb1d852c8d4a67caca" class="smooth"
+                                               data-anchor="#779477bcccdd4ecb1d852c8d4a67caca"><span>图标设计</span></a></li>
+                                        
+                                        <li><a href="#ff65f7f9721757bf11b0b0c95f1b9446" class="smooth"
+                                               data-anchor="#ff65f7f9721757bf11b0b0c95f1b9446"><span>平面素材</span></a></li>
+                                        
+                                        <li><a href="#722d3693fc0b9344bb46ee220beac1b6" class="smooth"
+                                               data-anchor="#722d3693fc0b9344bb46ee220beac1b6"><span>字体资源</span></a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                <li class="sidebar-item">
+                                    <a href="#4fbc8ba07df90bae306d8e3b83fc5a21"
+                                       class="smooth change-href"
+                                       data-change="#4fbc8ba07df90bae306d8e3b83fc5a21"
+                                       data-anchor="#4fbc8ba07df90bae306d8e3b83fc5a21">
+                                        <i class="fas fa-tools fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>开发设计</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#4fbc8ba07df90bae306d8e3b83fc5a21" class="smooth"
+                                               data-anchor="#4fbc8ba07df90bae306d8e3b83fc5a21"><span>图形创意</span></a></li>
+                                        
+                                        <li><a href="#542c016a714d85715d206c8892fba01f" class="smooth"
+                                               data-anchor="#542c016a714d85715d206c8892fba01f"><span>界面设计</span></a></li>
+                                        
+                                        <li><a href="#31e51a60697ff3fb1d1c4934cce67921" class="smooth"
+                                               data-anchor="#31e51a60697ff3fb1d1c4934cce67921"><span>在线配色</span></a></li>
+                                        
+                                        <li><a href="#9c2232288caaa8ec40948cef6a786ac2" class="smooth"
+                                               data-anchor="#9c2232288caaa8ec40948cef6a786ac2"><span>在线工具</span></a></li>
+                                        
+                                        <li><a href="#13a0e1cc22ccc31b31242a6046230729" class="smooth"
+                                               data-anchor="#13a0e1cc22ccc31b31242a6046230729"><span>谷歌插件</span></a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                <li class="sidebar-item">
+                                    <a href="#ae6ab642180c1294680dbc6185bc490f"
+                                       class="smooth change-href"
+                                       data-change="#ae6ab642180c1294680dbc6185bc490f"
+                                       data-anchor="#ae6ab642180c1294680dbc6185bc490f">
+                                        <i class="fas fa-pencil-alt fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>媒体运营</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#ae6ab642180c1294680dbc6185bc490f" class="smooth"
+                                               data-anchor="#ae6ab642180c1294680dbc6185bc490f"><span>新媒体</span></a></li>
+                                        
+                                        <li><a href="#4dc9cec737e43867b8330336c35a5e07" class="smooth"
+                                               data-anchor="#4dc9cec737e43867b8330336c35a5e07"><span>排版工具</span></a></li>
+                                        
+                                        <li><a href="#fb239c01244735ea863c27ac88060593" class="smooth"
+                                               data-anchor="#fb239c01244735ea863c27ac88060593"><span>图片设计</span></a></li>
+                                        
+                                        <li><a href="#9f5b13dd1585dacdec3fd4fca7a9f578" class="smooth"
+                                               data-anchor="#9f5b13dd1585dacdec3fd4fca7a9f578"><span>图片素材</span></a></li>
+                                        
+                                        <li><a href="#5a632ccb8dc3003658b13cca5ef7ce7e" class="smooth"
+                                               data-anchor="#5a632ccb8dc3003658b13cca5ef7ce7e"><span>文件处理</span></a></li>
+                                        
+                                        <li><a href="#aec25b122d7aceb3dd3b64cf71858ed2" class="smooth"
+                                               data-anchor="#aec25b122d7aceb3dd3b64cf71858ed2"><span>视频教程</span></a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                <li class="sidebar-item">
+                                    <a href="#2bdd4344e8aaa366ed5d4f0f24cc9267"
+                                       class="smooth change-href"
+                                       data-change="#2bdd4344e8aaa366ed5d4f0f24cc9267"
+                                       data-anchor="#2bdd4344e8aaa366ed5d4f0f24cc9267">
+                                        <i class="fas fa-chalkboard-teacher fa-lg icon-fw icon-lg mr-2"></i>
+                                        <span>科技资讯</span>
+                                        <i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i>
+                                    </a>
+                                    <ul>
+                                        
+                                        <li><a href="#2bdd4344e8aaa366ed5d4f0f24cc9267" class="smooth"
+                                               data-anchor="#2bdd4344e8aaa366ed5d4f0f24cc9267"><span>软件站点</span></a></li>
+                                        
+                                        <li><a href="#a961471aed425b95b74727f2d3386b02" class="smooth"
+                                               data-anchor="#a961471aed425b95b74727f2d3386b02"><span>科技博客</span></a></li>
+                                        
+                                        <li><a href="#44d6136af9d83068a3de505be1d30397" class="smooth"
+                                               data-anchor="#44d6136af9d83068a3de505be1d30397"><span>扩展插件</span></a></li>
+                                        
+                                        <li><a href="#aec25b122d7aceb3dd3b64cf71858ed2" class="smooth"
+                                               data-anchor="#aec25b122d7aceb3dd3b64cf71858ed2"><span>视频教程</span></a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -291,12 +337,12 @@
                                     <span>网站提交</span></a>
                             </li>
 
-			    <li id="menu-item-212"
-                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212 sidebar-item">
-                                 <a href="#friendlink" class="smooth">
-                                     <i class="fab fa-staylinked icon-fw icon-lg mr-2"></i>
-                                     <span>友情链接</span>
-                                 </a>
+                            <li id="menu-item-212"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-212 sidebar-item">
+                                <a href="#friendlink" class="smooth" data-anchor="#friendlink">
+                                    <i class="fab fa-staylinked icon-fw icon-lg mr-2"></i>
+                                    <span>友情链接</span>
+                                </a>
                             </li>
 
                             <li id="menu-item-213"
@@ -310,7 +356,29 @@
                 </div>
             </div>
         </div>
+        <script>
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                var sidebarLinks = document.querySelectorAll('#sidebar a[href^="#"]');
+                var isHomePage = window.location.pathname === '/';
 
+                sidebarLinks.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        
+                        if (isHomePage) {
+                            return;
+                        }
+
+                        
+                        e.preventDefault();
+                        var anchor = this.getAttribute('data-anchor');
+                        if (anchor) {
+                            window.location.href = '/' + anchor;
+                        }
+                    });
+                });
+            });
+        </script>
 
 <div class="main-content flex-fill grid-bg">
     <div class="big-header-banner">
