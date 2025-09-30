@@ -65,8 +65,32 @@ var theme = {"ajaxurl":"","addico":"https:\/\/nav.baidu.cn\/wp-content\/themes\/
         });
         
     });
-</script>
 
+
+</script>
+<script>
+    // 动态处理锚点链接
+    document.addEventListener('DOMContentLoaded', function () {
+        var sidebarLinks = document.querySelectorAll('#sidebar a[href^="#"]');
+        var isHomePage = window.location.pathname === '/';
+
+        sidebarLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                // 如果在首页，使用默认行为（相对路径）
+                if (isHomePage) {
+                    return;
+                }
+
+                // 如果不在首页，阻止默认行为，使用绝对路径
+                e.preventDefault();
+                var anchor = this.getAttribute('data-anchor');
+                if (anchor) {
+                    window.location.href = '/' + anchor;
+                }
+            });
+        });
+    });
+</script>
 <script>
 //夜间(日间)模式
 (function(){

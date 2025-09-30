@@ -246,44 +246,44 @@ footer.main-footer .footer-text a:hover {
 
 /* 优化左侧导航栏 */
 .sidebar-item {
-    margin-bottom: 5px;
-}
+    /* margin-bottom: 5px;*/
+ }
 
-.sidebar-item > a {
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s;
-    border-radius: 5px;
-    margin: 0 10px;
-}
+ .sidebar-item > a {
+     padding: 10px 15px;
+     display: flex;
+     align-items: center;
+     transition: all 0.3s;
+     border-radius: 5px;
+     margin: 0 10px;
+ }
 
-.sidebar-item > a:hover {
-    background-color: rgba(0,0,0,0.1);
-    transform: translateX(5px);
-}
+ .sidebar-item > a:hover {
+     background-color: rgba(0,0,0,0.1);
+     transform: translateX(5px);
+ }
 
-.sidebar-item > a > i {
-    margin-right: 10px;
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
-}
+ .sidebar-item > a > i {
+     margin-right: 10px;
+     font-size: 18px;
+     width: 24px;
+     text-align: center;
+ }
 
-.sidebar-item ul li a {
-    padding: 8px 15px 8px 45px;
-    display: block;
-    transition: all 0.3s;
-    border-radius: 5px;
-    margin: 0 10px;
-}
+ .sidebar-item ul li a {
+     padding: 8px 15px 8px 45px;
+     display: block;
+     transition: all 0.3s;
+     border-radius: 5px;
+     margin: 0 10px;
+ }
 
-.sidebar-item ul li a:hover {
-    background-color: rgba(0,0,0,0.1);
-    transform: translateX(5px);
-}
+ .sidebar-item ul li a:hover {
+     background-color: rgba(0,0,0,0.1);
+     transform: translateX(5px);
+ }
 
-/* 展开状态下的导航项样式 */
+ /* 展开状态下的导航项样式 */
 .sidebar-menu-inner .sidebar-item.expanded > a {
     background-color: rgba(0,0,0,0.05);
 }

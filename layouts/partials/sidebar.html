@@ -58,6 +58,20 @@
                 width: 15px
             }
         }
+
+        /* 二级菜单选中状态高亮样式 */
+         .sidebar-item ul li.active > a {
+             color: #f1404b !important;
+             font-weight: bold;
+         }
+
+        /* 夜间模式下的选中状态样式 */
+        .io-black-mode .sidebar-item ul li.active > a {
+            color: white !important;
+            font-weight: bold;
+        }
+
+
     </style>
     <div class="loader">{{ $.Site.Params.textPreLoad }}</div>
 </div>
@@ -154,26 +168,3 @@
                 </div>
             </div>
         </div>
-        <script>
-            // 动态处理锚点链接
-            document.addEventListener('DOMContentLoaded', function () {
-                var sidebarLinks = document.querySelectorAll('#sidebar a[href^="#"]');
-                var isHomePage = window.location.pathname === '/';
-
-                sidebarLinks.forEach(function (link) {
-                    link.addEventListener('click', function (e) {
-                        // 如果在首页，使用默认行为（相对路径）
-                        if (isHomePage) {
-                            return;
-                        }
-
-                        // 如果不在首页，阻止默认行为，使用绝对路径
-                        e.preventDefault();
-                        var anchor = this.getAttribute('data-anchor');
-                        if (anchor) {
-                            window.location.href = '/' + anchor;
-                        }
-                    });
-                });
-            });
-        </script>
